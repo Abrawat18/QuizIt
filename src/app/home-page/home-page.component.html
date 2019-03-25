@@ -1,4 +1,4 @@
-<p>
+<p xmlns="http://www.w3.org/1999/html">
   home-page works!
 </p>
 {{ageRange}}
@@ -14,11 +14,63 @@
           <a class="nav-link" href="#">RANDOM</a>
         </li>
         <li class="nav-item col-lg-6">
-          <a class="nav-link" href="#">CATEGORY</a>
+          <a class="nav-link" href="#" (click)="view()">{{text}}</a>
         </li>
-      </ul>    
+      </ul>
   </nav>
 </div>
+  <div *ngIf="text != 'Category'" class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <img class="category-tile" src = "../../assets/images/museum.png">
+      </div>
+      <div class="col-lg-4">
+        <img class="category-tile" src = "../../assets/images/museum.png">
+      </div>
+      <div class="col-lg-4">
+        <img class="category-tile" src = "../../assets/images/museum.png">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <img class="category-tile" src = "../../assets/images/museum.png">
+      </div>
+      <div class="col-lg-4">
+        <img class="category-tile" src = "../../assets/images/museum.png">
+      </div>
+      <div class="col-lg-4">
+        <img class="category-tile" src = "../../assets/images/museum.png">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <img class="category-tile" src = "../../assets/images/museum.png">
+      </div>
+      <div class="col-lg-4">
+        <img class="category-tile" src = "../../assets/images/museum.png">
+      </div>
+      <div class="col-lg-4">
+        <img class="category-tile" src = "../../assets/images/museum.png">
+      </div>
+    </div>
+  </div>
+  <div *ngIf="text === 'Category'" class="container">
+    <p>hello</p>
+    <div *ngFor="let ques of allCustom">
+    <tr>
+      <td>
+        {{ques.question}}
+      </td>
+    </tr>
+      <br>
+    <tr>
+      <td>
+        {{ques.answers}}
+      </td>
+    </tr>
+      <hr>
+    </div>
+  </div>
 </div>
 
 
