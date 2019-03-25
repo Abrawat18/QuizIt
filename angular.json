@@ -24,7 +24,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "../quiz-it/node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "../quizIt/node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true

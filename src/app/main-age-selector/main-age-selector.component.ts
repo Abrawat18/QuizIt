@@ -7,24 +7,24 @@ import { DataService } from '../data.service';
   styleUrls: ['./main-age-selector.component.css']
 })
 export class MainAgeSelectorComponent implements OnInit {
-  ageRange:string;
+  ageRange: string;
   compVisible = true;
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    //this.data.currentMessage.subscribe(message => this.ageRange = message)
+    // this.data.currentMessage.subscribe(message => this.ageRange = message)
   }
 
-  child(){
-    this.data.changeMessage("child");
+  child() {
+    this.data.changeMessage('child');
     this.compVisible = false;
   }
-  teen(){
-    this.data.changeMessage("teen")
+  teen() {
+    this.data.changeMessage('teen');
     this.compVisible = false;
   }
-  adult(){
-    this.data.changeMessage("adult")
+  adult() {
+    this.data.changeMessage('adult');
     this.compVisible = false;
   }
 
