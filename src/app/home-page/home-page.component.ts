@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import questions from '../../assets/data/custom.json';
 
+import questions from '../../assets/data/custom.json';
+import categories from '../../assets/data/Categories.json';
 import { saveAs } from 'file-saver';
-import categories from '../../assets/textfiles/Categories.json';
+
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
+
 export class HomePageComponent implements OnInit {
 
   ageRange: string;
@@ -24,6 +26,10 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.ageRange = message);
     this.allCustom = questions.questions;
+    this.all_categories = categories.categories;
+    this.all_categories.sort(function(obj1, obj2){
+      return obj2.hits - obj1.hits;
+    })
   }
   view() {
     this.text = this.text === 'Custom' ? 'Category' : 'Custom';
@@ -35,11 +41,5 @@ export class HomePageComponent implements OnInit {
   writeJsonFile(customQuestion) {
     const blob = new Blob([JSON.stringify(customQuestion)], {type : 'application/json'});
     saveAs(blob, 'customQuiz.json');
-    
-    this.all_categories = categories.categories;
-    this.all_categories.sort(function(obj1, obj2){
-      return obj2.hits - obj1.hits;
-    })
-
   }
 }
