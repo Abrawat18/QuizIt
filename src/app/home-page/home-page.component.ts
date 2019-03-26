@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import questions from '../../assets/data/custom.json';
-console.log(questions.questions);
+
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-home-page',
@@ -11,20 +12,25 @@ console.log(questions.questions);
 export class HomePageComponent implements OnInit {
 
   ageRange: string;
-  text = 'Category';
+  text = 'Custom';
   allCustom;
+  customQuestion = [];
+  // question = 'what is the circumference of circle?'
   constructor(private data: DataService) { }
 
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.ageRange = message);
     this.allCustom = questions.questions;
   }
-
   view() {
-    this.text = this.text === 'Category' ? 'Custom' : 'Category';
+    this.text = this.text === 'Custom' ? 'Category' : 'Custom';
   }
-
-  createCustomQuiz() {
-
+  addToCustomQuiz(question) {
+    this.customQuestion.push(question);
+    console.log(this.customQuestion);
+  }
+  writeJsonFile(customQuestion) {
+    const blob = new Blob([JSON.stringify(customQuestion)], {type : 'application/json'});
+    saveAs(blob, 'customQuiz.json');
   }
 }
