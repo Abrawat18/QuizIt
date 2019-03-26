@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MainAgeSelectorComponent } from './main-age-selector/main-age-selector.component';
-import { DataService } from './data.service'
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [

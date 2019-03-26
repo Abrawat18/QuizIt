@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import questions from '../../assets/data/custom.json';
 
 import { saveAs } from 'file-saver';
+import categories from '../../assets/textfiles/Categories.json';
 
 @Component({
   selector: 'app-home-page',
@@ -16,6 +17,8 @@ export class HomePageComponent implements OnInit {
   allCustom;
   customQuestion = [];
   // question = 'what is the circumference of circle?'
+  all_categories:any[];
+
   constructor(private data: DataService) { }
 
   ngOnInit() {
@@ -32,5 +35,11 @@ export class HomePageComponent implements OnInit {
   writeJsonFile(customQuestion) {
     const blob = new Blob([JSON.stringify(customQuestion)], {type : 'application/json'});
     saveAs(blob, 'customQuiz.json');
+    
+    this.all_categories = categories.categories;
+    this.all_categories.sort(function(obj1, obj2){
+      return obj2.hits - obj1.hits;
+    })
+
   }
 }
