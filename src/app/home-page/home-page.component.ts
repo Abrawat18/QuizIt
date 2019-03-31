@@ -38,10 +38,11 @@ export class HomePageComponent implements OnInit {
 
   getQuiz(category_id: number){
     // let data = {amount: 10, category: category_id, difficulty: "easy", type: "multiple"};
-    const my_params = {params: new HttpParams().set('amount', '10')};
-                  // .set('difficulty', 'easy').set('type','multiple');
+    const my_params = {params: new HttpParams().set('amount', '10').set('category', String(category_id))
+                      .set('difficulty', 'easy').set('type','boolean')};
     this.httpClient.get<any[]>(SharedData.API_URL, my_params).subscribe(res => {
       this.json_quiz=res;
+      console.log(this.json_quiz);
     }, err => {})
   } 
 
