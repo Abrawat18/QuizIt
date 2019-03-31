@@ -1,0 +1,130 @@
+<p xmlns="http://www.w3.org/1999/html">
+  home-page works!
+</p>
+{{ageRange}}
+
+<div *ngIf="ageRange == 'teen'" class="container">
+    <div class="row">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark col-lg-12">
+   
+        <a class="navbar-brand col-lg-4" href="#">QUIZ-IT</a>
+      <!-- Links -->
+      <ul class="navbar-nav col-lg-8">
+        <li class="nav-item col-lg-6">
+          <a class="nav-link" href="#">RANDOM</a>
+        </li>
+        <li class="nav-item col-lg-6">
+          <a class="nav-link" href="#" (click)="view()">{{text}}</a>
+        </li>
+      </ul>
+  </nav>
+    </div>
+    <div *ngIf="text != 'Category'" class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="category-tile" src = "../../assets/images/museum.png">
+        </div>
+        <div class="col-lg-4">
+          <img class="category-tile" src = "../../assets/images/museum.png">
+        </div>
+        <div class="col-lg-4">
+          <img class="category-tile" src = "../../assets/images/museum.png">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="category-tile" src = "../../assets/images/museum.png">
+        </div>
+        <div class="col-lg-4">
+          <img class="category-tile" src = "../../assets/images/museum.png">
+        </div>
+        <div class="col-lg-4">
+          <img class="category-tile" src = "../../assets/images/museum.png">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="category-tile" src = "../../assets/images/museum.png">
+        </div>
+        <div class="col-lg-4">
+          <img class="category-tile" src = "../../assets/images/museum.png">
+        </div>
+        <div class="col-lg-4">
+          <img class="category-tile" src = "../../assets/images/museum.png">
+        </div>
+      </div>
+    </div>
+    <div *ngIf="text === 'Category'" class="list-group">
+      <p>hello</p>
+      <div *ngFor="let ques of allCustom">
+        <li>{{ques.question}}
+        <button class="btn btn-primary" (click)="addToCustomQuiz(ques)">Add to Custom</button></li>
+        <br>
+        <li>{{ques.answers}}</li>
+        <hr>
+      </div>
+      <div>
+        <button class="btn btn-primary" (click)="writeJsonFile(customQuestion)">Create Custom Quiz</button>
+      </div>
+    </div>
+</div>
+
+
+  
+<div *ngIf="ageRange == 'child'" class="container">
+    <mat-grid-list cols="1" rowHeight="11:1" [gutterSize]="'10px'">
+        <mat-grid-tile>
+            <button md-button (click)="buttonRandomClicked()">RANDOM</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+        <mat-grid-list cols="3" rowHeight="4:1" [gutterSize]="'10px'">
+            <ng-container *ngFor="let cat of all_categories"  class="row">
+              <mat-grid-tile>
+                  <button md-button>{{cat.name}}</button>
+                </mat-grid-tile>
+            </ng-container> 
+          </mat-grid-list>
+    </div>
+    
+
+
+<div *ngIf="ageRange == 'adult'" class="container">
+    <div class="row">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark col-lg-12">
+   
+          <!-- Links -->
+          <ul class="navbar-nav col-lg-8">
+            <li class="nav-item dropdown col-lg-6">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    ALL CATEGORIES
+                </a>
+                  <ul class="dropdown-menu">
+                    <li style="text-align: center" *ngFor="let cat of all_categories">
+                        <a class="dropdown-item" href="#">{{cat.name}}</a>
+                    </li>
+                  </ul>
+            </li>
+            <li class="nav-item col-lg-6">
+              <a class="nav-link" href="#">TAKE A RANDOM QUIZ</a>
+            </li>
+            <li class="nav-item col-lg-6">
+              <a class="nav-link" href="#">CREATE YOUR OWN QUIZ</a>
+            </li>
+          </ul>    
+      </nav>
+      <div class="col-lg-6">
+        Important quiz
+        <ul>
+          <li *ngFor="let cat of all_categories">
+              {{cat.name}} with {{cat.hits}}
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+          Custom quiz
+        </div>
+    </div>
+  </div>
+
+
+
