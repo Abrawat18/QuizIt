@@ -1,8 +1,8 @@
 {
 "categories": [
-{"name": "maths", "hits": "1"},
-{"name": "english", "hits": "4"}, 
-{"name": "science", "hits": "2"} 
+{"id": "25", "name": "Art", "hits": "1"},
+{"id": "2", "name": "english", "hits": "4"}, 
+{"id": "3", "name": "science", "hits": "2"} 
 
 ]
 }

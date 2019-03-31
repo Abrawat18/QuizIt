@@ -134,7 +134,9 @@
         Important quiz
         <ul>
           <li *ngFor="let cat of all_categories">
-              {{cat.name}} with {{cat.hits}}
+            <button (click)="getQuiz(cat.id)">
+                {{cat.name}} ({{cat.hits}} hits)
+            </button>
           </li>
         </ul>
       </div>
