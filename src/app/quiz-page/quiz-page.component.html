@@ -9,7 +9,7 @@
             [rowspan]="1"
             [style.background]="'lightpink'">
           <mat-card class="" >Category:</mat-card>
-          <mat-card class="" >Score:</mat-card>
+          <mat-card class="" >Score: {{userScore}}</mat-card>
         </mat-grid-tile>
       </mat-grid-list>
       <mat-grid-list cols="12" style="background-color:lightblue">
@@ -21,7 +21,9 @@
           </mat-grid-tile>
         </mat-grid-list>
         <div *ngIf="isOptionEnabled == false" class="container">
-              <input type="text" [(ngModel)]="inputText">
+            <mat-form-field>
+                <textarea matInput placeholder="Type Answer" [(ngModel)]="inputText"></textarea>
+            </mat-form-field>
         </div>
         <div *ngIf="isOptionEnabled == true" class="container">
             <mat-grid-list cols="12" rowHeight="12:3" style="background-color:lightpink">

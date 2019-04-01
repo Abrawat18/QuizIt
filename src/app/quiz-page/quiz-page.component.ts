@@ -42,17 +42,14 @@ export class QuizPageComponent implements OnInit {
     if (areEqual){
       this.userScore++;
     }
-    alert(this.userScore);
   }
   buttonAnswerTapped(ans){
-    alert(ans);
     this.userAnswer = ans;
   }
   buttonNextTapped(){
     if(!this.isOptionEnabled){
       this.userAnswer = this.inputText;
     }
-    alert(this.userAnswer)
     this.validateAnswer();
     if(this.currentQuestionIndex == this.arrQuestions.length){
       this.currentQuestionIndex =0;
