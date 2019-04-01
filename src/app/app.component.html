@@ -1,7 +1,5 @@
 <div style="text-align:center">
-  <h1>
-   {{ logo }}
-  </h1>
+<app-header-on-page></app-header-on-page>
 <app-main-age-selector *ngIf="ageRange == 'default'"></app-main-age-selector>
 <app-home-page *ngIf="ageRange != 'default'"></app-home-page>
 <router-outlet></router-outlet>

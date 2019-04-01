@@ -6,9 +6,11 @@ import { DataService } from '../data.service';
   templateUrl: './main-age-selector.component.html',
   styleUrls: ['./main-age-selector.component.css']
 })
+
 export class MainAgeSelectorComponent implements OnInit {
   ageRange: string;
   compVisible = true;
+
   constructor(private data: DataService) { }
 
   ngOnInit() {
@@ -27,5 +29,18 @@ export class MainAgeSelectorComponent implements OnInit {
     this.data.changeMessage('adult');
     this.compVisible = false;
   }
-
+  onEnterUsername(value: string){
+    var existingUsernames = JSON.parse(localStorage.getItem("usernames"));
+    if(existingUsernames != null){
+      for (var user of existingUsernames){
+        if (user.name == value && user.age == "child"){
+          this.child();
+        } else if (user.name == value && user.age == "teen"){
+          this.teen();
+        } else if (user.name == value && user.age == "adult"){
+          this. adult();
+        }
+      }
+    }
+  }
 }

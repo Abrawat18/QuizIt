@@ -8,7 +8,6 @@ import { DataService } from './data.service';
 })
 
 export class AppComponent implements OnInit{
-  logo = 'QUIZ-IT';
   ageRange: string;
 
   constructor(private data: DataService){}
