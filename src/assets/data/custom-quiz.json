@@ -1,0 +1,7 @@
+{
+  "CustomQuizzes": [
+    {"FileName": "CustomMathQuiz"},
+    {"FileName": "CustomEnglishQuiz"},
+    {"FileName": "CustomScienceQuiz"}
+    ]
+    }

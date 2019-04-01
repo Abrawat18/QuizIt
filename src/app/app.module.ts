@@ -10,20 +10,25 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MainAgeSelectorComponent } from './main-age-selector/main-age-selector.component';
 import { DataService } from './data.service';
 import { HeaderOnPageComponent } from './header-on-page/header-on-page.component';
+import { CustomQuizComponent } from './custom-quiz/custom-quiz.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     MainAgeSelectorComponent,
-    HeaderOnPageComponent
+    HeaderOnPageComponent,
+    CustomQuizComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgxLocalStorageModule.forRoot(),
-    AlertsModule.forRoot()
+    AlertsModule.forRoot(),
+    HttpClientModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
