@@ -5,11 +5,16 @@ import { BehaviorSubject } from 'rxjs';
 export class DataService{
 
     private messageSource = new BehaviorSubject('default');
+    private usernameSource = new BehaviorSubject('User');
     currentMessage = this.messageSource.asObservable();
+    currentUser = this.usernameSource.asObservable();
 
     constructor(){}
 
     changeMessage(message: string){
         this.messageSource.next(message);
+    }
+    changeUser(username: string){
+        this.usernameSource.next(username);
     }
 }

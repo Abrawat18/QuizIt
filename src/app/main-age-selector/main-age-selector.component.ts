@@ -17,16 +17,19 @@ export class MainAgeSelectorComponent implements OnInit {
     // this.data.currentMessage.subscribe(message => this.ageRange = message)
   }
 
-  child() {
-    this.data.changeMessage('child');
+  child(username: string) {
+    this.data.changeMessage("child");
+    this.data.changeUser(username);
     this.compVisible = false;
   }
-  teen() {
-    this.data.changeMessage('teen');
+  teen(username: string) {
+    this.data.changeMessage("teen");
+    this.data.changeUser(username);
     this.compVisible = false;
   }
-  adult() {
-    this.data.changeMessage('adult');
+  adult(username: string) {
+    this.data.changeMessage("adult");
+    this.data.changeUser(username);
     this.compVisible = false;
   }
   onEnterUsername(value: string){
@@ -34,11 +37,11 @@ export class MainAgeSelectorComponent implements OnInit {
     if(existingUsernames != null){
       for (var user of existingUsernames){
         if (user.name == value && user.age == "child"){
-          this.child();
+          this.child(user.name);
         } else if (user.name == value && user.age == "teen"){
-          this.teen();
+          this.teen(user.name);
         } else if (user.name == value && user.age == "adult"){
-          this. adult();
+          this. adult(user.name);
         }
       }
     }

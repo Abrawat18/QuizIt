@@ -10,7 +10,7 @@ import { User } from '../main-age-selector/user';
 export class HeaderOnPageComponent implements OnInit {
   logo = 'QUIZ-IT';
   ageRange: string;
-  username = 'User';
+  username: string;
   usernameToggle: Boolean = false;
   createUserNameBtn: String = "Create username";
   successfullyCreatedUsername: Boolean = true;
@@ -19,6 +19,7 @@ export class HeaderOnPageComponent implements OnInit {
 
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.ageRange = message)
+    this.data.currentUser.subscribe(username => this.username = username )
   }
 
   addUserOnClick(usernameInput: string){
@@ -31,20 +32,17 @@ export class HeaderOnPageComponent implements OnInit {
       var existingUsernames = JSON.parse(localStorage.getItem("usernames"));
       console.log(existingUsernames);
       if (existingUsernames != null){
-        console.log("1");
         for (var user of existingUsernames){
           if (user.name == usernameInput){
-            console.log("2");
             this.successfullyCreatedUsername = !this.successfullyCreatedUsername;
           }
         }
       } else {
-        console.log("3");
         existingUsernames = []
       }
-      console.log("4");
       existingUsernames.push(new User(usernameInput, this.ageRange));
       localStorage.setItem("usernames", JSON.stringify(existingUsernames));
+      this.data.changeUser(usernameInput);
       console.log(usernameInput);
     }
   }
