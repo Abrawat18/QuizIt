@@ -46,4 +46,9 @@ export class HeaderOnPageComponent implements OnInit {
       console.log(usernameInput);
     }
   }
+
+  goToAgeSelect(){
+    this.data.changeMessage("default");
+    this.data.changeUser("User");
+  }
 }

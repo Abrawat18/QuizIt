@@ -8,8 +8,8 @@
         <button *ngIf="username=='User'" (click)="addUserOnClick(newUsername.value)">{{createUserNameBtn}}</button>
         <p>Hi {{ username }}!</p>
     </div>
-    <div *ngIf="ageRange!='default'" class="column">
-      <button routerLink="/app.component.html">Change Age</button>
+    <div *ngIf="ageRange!='default' && username=='User'" class="column">
+      <button (click)="goToAgeSelect()">Change Age</button>
     </div>
   </div>
 </div>
