@@ -21,9 +21,7 @@
           </mat-grid-tile>
         </mat-grid-list>
         <div *ngIf="isOptionEnabled == false" class="container">
-            <mat-form-field>
-                <textarea matInput placeholder="Type Answer"></textarea>
-              </mat-form-field>
+              <input type="text" [(ngModel)]="inputText">
         </div>
         <div *ngIf="isOptionEnabled == true" class="container">
             <mat-grid-list cols="12" rowHeight="12:3" style="background-color:lightpink">
@@ -32,7 +30,7 @@
                 [colspan]="6"
                 [rowspan]="3"
                 >
-              {{ans}}
+              <button mat-button (click)="buttonAnswerTapped(ans)">{{ans}}</button>
             </mat-grid-tile>
             </mat-grid-list>
         </div>

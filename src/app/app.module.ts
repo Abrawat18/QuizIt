@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatGridListModule, MatSelectModule,MatCardModule,MatInputModule } from '@angular/material';
 
 
@@ -25,6 +26,7 @@ import { QuizPageComponent } from './quiz-page/quiz-page.component';
     MatGridListModule,
     MatCardModule,
     MatInputModule,
+    FormsModule,
     BrowserAnimationsModule,
   ],
   providers: [DataService],

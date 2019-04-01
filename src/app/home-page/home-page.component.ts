@@ -45,9 +45,13 @@ export class HomePageComponent implements OnInit {
     saveAs(blob, 'customQuiz.json');
   }
   public buttonRandomClicked() {
-    this.randomCategory = this.all_categories[Math.floor(Math.random()*this.all_categories.length)];
-    alert(this.randomCategory.text);
+    let index = Math.floor(Math.random()*this.all_categories.length)
+    this.randomCategory = this.all_categories[index];
+    alert(this.randomCategory.name);
     console.info(this.randomCategory);
+
+  }
+  public buttonCategoryClicked(category){
 
   }
 
