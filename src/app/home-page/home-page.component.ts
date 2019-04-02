@@ -6,6 +6,8 @@ import { saveAs } from 'file-saver';
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SharedData } from '../global/sharedData';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home-page',
@@ -21,8 +23,9 @@ export class HomePageComponent implements OnInit {
   customQuestion: any[];
   all_categories: any[];
   json_quiz: any;
+  isQuizPageToBeLoaded = false;
 
-  constructor(private data: DataService, private httpClient: HttpClient) { }
+  constructor(private data: DataService, private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.ageRange = message);
@@ -34,12 +37,12 @@ export class HomePageComponent implements OnInit {
   }
 
   getQuiz(category_id: number) {
-    // let data = {amount: 10, category: category_id, difficulty: "easy", type: "multiple"};
+    // let data = { : 10, category: category_id, difficulty: "easy", type: "multiple"};
     const my_params = {params: new HttpParams().set('amount', '10').set('category', String(category_id))
                       .set('difficulty', 'easy').set('type', 'boolean')};
     this.httpClient.get<any[]>(SharedData.API_URL, my_params).subscribe(res => {
       this.json_quiz = res;
-      console.log(this.json_quiz);
+      this.isQuizPageToBeLoaded = true;
     }, err => {});
   }
 
@@ -49,5 +52,9 @@ export class HomePageComponent implements OnInit {
  addToCustomQuiz(question) {
     this.customQuestion.push(question);
     console.log(this.customQuestion);
+  }
+  
+ goToPage(pageName:string){
+    this.router.navigate([`${pageName}`]);
   }
 }
