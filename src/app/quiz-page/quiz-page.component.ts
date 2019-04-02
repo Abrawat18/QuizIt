@@ -28,7 +28,10 @@ export class QuizPageComponent implements OnInit {
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.ageRange = message);
     this.currentQuestionIndex = 0;
-    this.updateCurrentQuestionAnsValue();
+    setTimeout(() => {
+      return this.updateCurrentQuestionAnsValue();
+      ;
+  }, 50);
   }
   updateCurrentQuestionAnsValue(){
     console.log(this.arrQuizContent);
