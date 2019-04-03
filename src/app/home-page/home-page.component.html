@@ -117,9 +117,20 @@
             </div>
             <div class="col-lg-6">
                 Custom quiz
+              <ul>
+                <li *ngFor="let custom of allCustom">
+                 <!-- <app-custom-quiz (click)="custom-quiz.component.loadCustomQuiz(custom.FileName)"></app-custom-quiz>-->
+                  <button (click)="loadCustomQuiz(custom.FileName)">
+                    {{custom.FileName}}
+                  </button>
+                </li>
+              </ul>
               </div>
           </div>
       </div>
+  <div *ngIf="isQuizPageToBeLoaded == true" class="list-group">
+    <app-quiz-page [arrQuizContent]="customQuiz[0]"></app-quiz-page>
+  </div>
   </div>
 
 
