@@ -1,8 +1,26 @@
 {
-"categories": [
-{"id": "25", "name": "Art", "hits": "1"},
-{"id": "2", "name": "english", "hits": "4"}, 
-{"id": "24", "name": "science", "hits": "2"} 
-
-]
+"categories": [{"id":"9","name":"General Knowledge", "hits": "1"},
+    {"id":"10","name":"Entertainment: Books", "hits": "5"},
+    {"id":"11","name":"Entertainment: Film", "hits": "6"},
+    {"id":"12","name":"Entertainment: Music", "hits": "3"},
+    {"id":"13","name":"Entertainment: Musicals & Theatres", "hits": "2"},
+    {"id":"14","name":"Entertainment: Television", "hits": "6"},
+    {"id":"15","name":"Entertainment: Video Games", "hits": "6"},
+    {"id":"16","name":"Entertainment: Board Games", "hits": "10"},
+    {"id":"17","name":"Science & Nature", "hits": "2"},
+    {"id":"18","name":"Science: Computers", "hits": "4"},
+    {"id":"19","name":"Science: Mathematics", "hits": "5"},
+    {"id":"20","name":"Mythology", "hits": "7"},
+    {"id":"21","name":"Sports", "hits": "8"},
+    {"id":"22","name":"Geography", "hits": "4"},
+    {"id":"23","name":"History", "hits": "3"},
+    {"id":"24","name":"Politics", "hits": "12"},
+    {"id":"25","name":"Art", "hits": "1"},
+    {"id":"26","name":"Celebrities", "hits": "2"},
+    {"id":"27","name":"Animals", "hits": "14"},
+    {"id":"28","name":"Vehicles", "hits": "2"},
+    {"id":"29","name":"Entertainment: Comics", "hits": "1"},
+    {"id":"30","name":"Science: Gadgets", "hits": "12"},
+    {"id":"31","name":"Entertainment: Japanese Anime & Manga", "hits": "4"},
+    {"id":"32","name":"Entertainment: Cartoon & Animations", "hits": "4"}]
 }

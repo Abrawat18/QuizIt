@@ -61,7 +61,7 @@
 </div>
 
 
-<div *ngIf="ageRange == 'child'" class="container">
+<div *ngIf="ageRange == 'child' && isQuizPageToBeLoaded == false" class="container">
   <mat-grid-list cols="1" rowHeight="11:1" [gutterSize]="'10px'">
       <mat-grid-tile>
           <button md-button (click)="buttonRandomClicked()">RANDOM</button>
@@ -70,57 +70,62 @@
       <mat-grid-list cols="3" rowHeight="4:1" [gutterSize]="'10px'">
           <ng-container *ngFor="let cat of all_categories"  class="row">
             <mat-grid-tile>
-                <button md-button>{{cat.name}}</button>
+                <button md-button (click)="getQuiz(cat.id)">{{cat.name}}</button>
               </mat-grid-tile>
           </ng-container> 
         </mat-grid-list>
   </div>
   
-\
-<div *ngIf="ageRange == 'adult'" class="container">
-    <div *ngIf="isQuizPageToBeLoaded == true" class="list-group">
-        <app-quiz-page [arrQuizContent]="json_quiz"></app-quiz-page>
-      </div>
-      <div *ngIf="isQuizPageToBeLoaded == false" class="list-group" >
-          <div class="row">
-              <nav class="navbar navbar-expand-sm bg-dark navbar-dark col-lg-12">
-                <!-- Links -->
-                <ul class="navbar-nav col-lg-8">
-                  <li class="nav-item dropdown col-lg-6">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                          ALL CATEGORIES
-                      </a>
-                        <ul class="dropdown-menu">
-                          <li style="text-align: center" *ngFor="let cat of all_categories">
-                              <a class="dropdown-item" href="#">{{cat.name}}</a>
-                          </li>
-                        </ul>
-                  </li>
-                  <li class="nav-item col-lg-6">
-                    <a class="nav-link" href="#">TAKE A RANDOM QUIZ</a>
-                  </li>
-                  <li class="nav-item col-lg-6">
-                    <a class="nav-link" href="#">CREATE YOUR OWN QUIZ</a>
-                  </li>
-                </ul>    
-            </nav>
-            
-            <div class="col-lg-6">
-              Important quiz
-              <ul>
-                <li *ngFor="let cat of all_categories">
-                  <button (click)="getQuiz(cat.id)">
-                      {{cat.name}} ({{cat.hits}} hits)
-                  </button>
+
+<div *ngIf="ageRange == 'adult' && isQuizPageToBeLoaded == false" class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark col-lg-12">
+              <!-- Links -->
+              <ul class="navbar-nav col-lg-8">
+                <li class="nav-item dropdown col-lg-6">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        ALL CATEGORIES
+                    </a>
+                      <ul class="dropdown-menu">
+                        <li style="text-align: center" *ngFor="let cat of all_categories">
+                            <a role="button" class="dropdown-item" (click)="getQuiz(cat.id)">{{cat.name}}</a>
+                        </li>
+                      </ul>
                 </li>
-              </ul>
-            </div>
-            <div class="col-lg-6">
-                Custom quiz
-              </div>
+                <li class="nav-item col-lg-6">
+                  <a class="nav-link" href="#">TAKE A RANDOM QUIZ</a>
+                </li>
+                <li class="nav-item col-lg-6">
+                  <a class="nav-link" href="#">CREATE YOUR OWN QUIZ</a>
+                </li>
+              </ul>    
+          </nav>
+          
+          <div class="col-lg-6">
+            Most Played Quizzes
+            <ul>
+              <li *ngFor="let cat of all_categories | slice:0:8">
+                <button (click)="getQuiz(cat.id)">
+                    {{cat.name}} ({{cat.hits}} hits)
+                </button>
+              </li>
+            </ul>
           </div>
-      </div>
+          <div class="col-lg-6">
+              Custom quiz
+            <ul>
+              <li *ngFor="let custom of allCustom">
+                <button (click)="loadCustomQuiz(custom.FileName)">
+                  {{custom.FileName}}
+                </button>
+              </li>
+            </ul>
+          </div>
+    </div>
   </div>
 
+  <div *ngIf="isQuizPageToBeLoaded == true" class="list-group">
+    <app-quiz-page [arrQuizContent]="json_quiz"></app-quiz-page>
+  </div>  
 
 

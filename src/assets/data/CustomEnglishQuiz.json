@@ -1,24 +1,20 @@
 {
-  "questions": [
+  "results": [
     {
-      "question": "English What is the scientific name of a butterfly?",
-      "answers": [
-        "Apis",
-        "Coleoptera",
-        "Formicidae",
-        "Rhopalocera"
-      ],
-      "correctIndex": "3"
+      "category": "Politics",
+      "correct_answer": "False",
+      "difficulty": "easy",
+      "incorrect_answers": ["True"],
+      "question": "The S in Harry S. Truman stands for &quot;Samuel&quot;.",
+      "type": "boolean"
     },
     {
-      "question": "English How hot is the surface of the sun?",
-      "answers": [
-        "1,233 K",
-        "5,778 K",
-        "12,130 K",
-        "101,300 K"
-      ],
-      "correctIndex": "3"
+      "category": "Politics",
+      "correct_answer": "True",
+      "difficulty": "easy",
+      "incorrect_answers": ["False"],
+      "question": "There was a satirical candidate named &quot;Deez Nuts&quot; running in the 2016 US presidential elections.",
+      "type": "boolean"
     }
   ]
 }
