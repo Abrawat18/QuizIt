@@ -92,7 +92,7 @@
                       </a>
                         <ul class="dropdown-menu">
                           <li style="text-align: center" *ngFor="let cat of all_categories">
-                              <a class="dropdown-item" href="#">{{cat.name}}</a>
+                              <a role="button" class="dropdown-item" (click)="getQuiz(cat.id)">{{cat.name}}</a>
                           </li>
                         </ul>
                   </li>
@@ -106,9 +106,9 @@
             </nav>
             
             <div class="col-lg-6">
-              Important quiz
+              Most Played Quizzes
               <ul>
-                <li *ngFor="let cat of all_categories">
+                <li *ngFor="let cat of all_categories | slice:0:8">
                   <button (click)="getQuiz(cat.id)">
                       {{cat.name}} ({{cat.hits}} hits)
                   </button>
