@@ -23,6 +23,9 @@ export class HomePageComponent implements OnInit {
   customQuestion: any[];
   all_categories: any[];
   json_quiz: any;
+  flag = true;
+  private questions: any = [];
+  private customQuiz: any = [];
   isQuizPageToBeLoaded = false;
 
   constructor(private data: DataService, private httpClient: HttpClient, private router: Router) { }
@@ -45,7 +48,16 @@ export class HomePageComponent implements OnInit {
       this.isQuizPageToBeLoaded = true;
     }, err => {});
   }
-
+  public loadCustomQuiz(fileName) {
+    this.flag = false;
+    this.questions = this.loadLanguage(fileName);
+    this.customQuiz.push(this.questions.questions);
+    console.log(this.customQuiz);
+  }
+  public loadLanguage(lang: string) {
+    // @ts-ignore
+    return require('../../assets/data/' + lang + '.json');
+  }
   view() {
     this.text = this.text === 'Custom' ? 'Category' : 'Custom';
   }
