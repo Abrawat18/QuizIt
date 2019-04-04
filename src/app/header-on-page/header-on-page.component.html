@@ -1,15 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="column">
+    
+    <div class="col-md-6">
       <h1>{{ logo }}</h1>
     </div>  
-    <div *ngIf="ageRange!='default'" class="column">
-        <input #newUsername [hidden]="!usernameToggle" placeholder="Username"/>
-        <button *ngIf="username=='User'" (click)="addUserOnClick(newUsername.value)">{{createUserNameBtn}}</button>
-        <p>Hi {{ username }}!</p>
+      
+    <div class="col-md-2 input-username">
+      <input #newUsername [hidden]="!usernameToggle" placeholder="Username"/>
     </div>
-    <div *ngIf="ageRange!='default' && username=='User'" class="column">
-      <button (click)="goToAgeSelect()">Change Age</button>
+      
+    <div *ngIf="ageRange!='default'" class="col-md-2 username-controls">
+      <button class="btn-username-controls" *ngIf="username=='User'" (click)="addUserOnClick(newUsername.value)">{{createUserNameBtn}}</button>
+      <h5 *ngIf="username!='User'">Hi {{ username }}!</h5>
     </div>
+      
+    <div *ngIf="ageRange!='default' && username=='User'" class="col-md-2 change-age">
+      <button class="btn-change-age" (click)="goToAgeSelect()">Change Age</button>
+    </div>
+  
   </div>
 </div>
