@@ -23,9 +23,6 @@ export class HomePageComponent implements OnInit {
   customQuestion: any[];
   all_categories: any[];
   json_quiz: any;
-  flag = true;
-  private questions: any = [];
-  private customQuiz: any = [];
   isQuizPageToBeLoaded = false;
 
   constructor(private data: DataService, private httpClient: HttpClient, private router: Router) { }
@@ -62,10 +59,8 @@ export class HomePageComponent implements OnInit {
     }, err => {});
   }
   public loadCustomQuiz(fileName) {
-    this.flag = false;
-    this.questions = this.loadLanguage(fileName);
-    this.customQuiz.push(this.questions.questions);
-    console.log(this.customQuiz);
+    this.json_quiz = this.loadLanguage(fileName);
+    this.isQuizPageToBeLoaded = true;
   }
   public loadLanguage(lang: string) {
     // @ts-ignore

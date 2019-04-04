@@ -115,7 +115,6 @@
               Custom quiz
             <ul>
               <li *ngFor="let custom of allCustom">
-                <!-- <app-custom-quiz (click)="custom-quiz.component.loadCustomQuiz(custom.FileName)"></app-custom-quiz>-->
                 <button (click)="loadCustomQuiz(custom.FileName)">
                   {{custom.FileName}}
                 </button>
