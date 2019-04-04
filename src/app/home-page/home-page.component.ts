@@ -38,11 +38,25 @@ export class HomePageComponent implements OnInit {
       return obj2.hits - obj1.hits;
     });
   }
+  
+  getDifficultyFromAge(){
+    switch(this.ageRange){
+      case "child":{
+        return "easy";
+      }
+      case "teen":{
+        return "medium";
+      }
+      case "adult":{
+        return "hard";
+      }
+    }
+  }
 
   getQuiz(category_id: number) {
     // let data = { : 10, category: category_id, difficulty: "easy", type: "multiple"};
-    const my_params = {params: new HttpParams().set('amount', '10').set('category', String(category_id))
-                      .set('difficulty', 'easy').set('type', 'boolean')};
+    const my_params = {params: new HttpParams().set('amount', SharedData.NUMBER_OF_QUESTIONS).set('category', String(category_id))
+                      .set('difficulty', this.getDifficultyFromAge()).set('type', SharedData.TYPE_OF_QUESTIONS)};
     this.httpClient.get<any[]>(SharedData.API_URL, my_params).subscribe(res => {
       this.json_quiz = res;
       this.isQuizPageToBeLoaded = true;
