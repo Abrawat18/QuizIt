@@ -56,7 +56,6 @@ export class HomePageComponent implements OnInit {
   }
 
   getQuiz(category_id: number) {
-    // let data = { : 10, category: category_id, difficulty: "easy", type: "multiple"};
     const my_params = {params: new HttpParams().set('amount', SharedData.NUMBER_OF_QUESTIONS).set('category', String(category_id))
                       .set('difficulty', this.getDifficultyFromAge()).set('type', SharedData.TYPE_OF_QUESTIONS)};
     this.httpClient.get<any[]>(SharedData.API_URL, my_params).subscribe(res => {
