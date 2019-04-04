@@ -17,12 +17,13 @@ export class CustomQuizComponent implements OnInit {
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.ageRange = message);
   }
-  loadCustomQuiz(fileName) {
+  public loadCustomQuiz(fileName) {
     this.flag = false;
     this.questions = this.loadLanguage(fileName);
     this.customQuiz.push(this.questions.questions);
+    console.log(this.customQuiz);
   }
-  loadLanguage(lang: string) {
+  public loadLanguage(lang: string) {
     // @ts-ignore
     return require('../../assets/data/' + lang + '.json');
   }

@@ -27,6 +27,8 @@ export class HomePageComponent implements OnInit {
   private questions: any = [];
   private customQuiz: any = [];
   isQuizPageToBeLoaded = false;
+  isCustomQuizPageToBeLoaded = false;
+
 
   constructor(private data: DataService, private httpClient: HttpClient, private router: Router) { }
 
@@ -64,9 +66,8 @@ export class HomePageComponent implements OnInit {
   }
   public loadCustomQuiz(fileName) {
     this.flag = false;
-    this.questions = this.loadLanguage(fileName);
-    this.customQuiz.push(this.questions.questions);
-    console.log(this.customQuiz);
+    this.customQuiz = this.loadLanguage(fileName);
+    this.isCustomQuizPageToBeLoaded = true;
   }
   public loadLanguage(lang: string) {
     // @ts-ignore

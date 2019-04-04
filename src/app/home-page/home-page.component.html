@@ -78,7 +78,8 @@
   
 \
 <div *ngIf="ageRange == 'adult'" class="container">
-    <div *ngIf="isQuizPageToBeLoaded == true" class="list-group">
+  <div *ngIf="isCustomQuizPageToBeLoaded == false" class="list-group">
+  <div *ngIf="isQuizPageToBeLoaded == true" class="list-group">
         <app-quiz-page [arrQuizContent]="json_quiz"></app-quiz-page>
       </div>
       <div *ngIf="isQuizPageToBeLoaded == false" class="list-group" >
@@ -119,7 +120,6 @@
                 Custom quiz
               <ul>
                 <li *ngFor="let custom of allCustom">
-                 <!-- <app-custom-quiz (click)="custom-quiz.component.loadCustomQuiz(custom.FileName)"></app-custom-quiz>-->
                   <button (click)="loadCustomQuiz(custom.FileName)">
                     {{custom.FileName}}
                   </button>
@@ -128,6 +128,10 @@
               </div>
           </div>
       </div>
+  </div>
+  <div *ngIf="isCustomQuizPageToBeLoaded == true" class="list-group">
+    <app-quiz-page [arrQuizContent]="customQuiz"></app-quiz-page>
+  </div>
   </div>
 
 

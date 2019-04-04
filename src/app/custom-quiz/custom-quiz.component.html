@@ -2,14 +2,16 @@
 </p>
 <div *ngIf="flag == true">
 <div *ngFor="let custom of allCustom">
-  <a role="link" (click)="loadCustomQuiz(custom.FileName)">{{custom.FileName}}</a>
+  <a class="page-link" role="link" (click)="loadCustomQuiz(custom.FileName)">{{custom.FileName}}</a>
 </div>
 </div>
 <div *ngIf="flag == false">
   <div *ngFor="let ques of customQuiz[0]">
-    <li>{{ques.question}}</li>
+    <li class="question">{{ques.question}}</li>
     <br>
-    <li>{{ques.answers}}</li>
+    <div class="" *ngFor="let option of ques.answers">
+      <label><input type="radio" class="answers"/>{{option}}</label>
+    </div>
     <hr>
   </div>
 </div>
