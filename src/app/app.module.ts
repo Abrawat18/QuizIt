@@ -13,7 +13,6 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MainAgeSelectorComponent } from './main-age-selector/main-age-selector.component';
 import { DataService } from './data.service';
 import { HeaderOnPageComponent } from './header-on-page/header-on-page.component';
-import { CustomQuizComponent } from './custom-quiz/custom-quiz.component';
 import {QuizPageComponent} from './quiz-page/quiz-page.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
     HomePageComponent,
     MainAgeSelectorComponent,
     HeaderOnPageComponent,
-    CustomQuizComponent,
     QuizPageComponent
   ],
   imports: [
