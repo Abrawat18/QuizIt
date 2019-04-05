@@ -69,11 +69,6 @@ export class HomePageComponent implements OnInit {
   view() {
     this.text = this.text === 'Custom' ? 'Category' : 'Custom';
   }
- addToCustomQuiz(question) {
-    this.customQuestion.push(question);
-    console.log(this.customQuestion);
-  }
-  
  goToPage(pageName:string){
     this.router.navigate([`${pageName}`]);
   }
