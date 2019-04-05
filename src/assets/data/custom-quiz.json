@@ -1,7 +1,7 @@
 {
   "CustomQuizzes": [
-    {"id": "1","FileName": "CustomMathQuiz"},
-    {"id": "2","FileName": "CustomEnglishQuiz"},
-    {"id": "3","FileName": "CustomScienceQuiz"}
+    {"id": "1","FileName": "CustomMathQuiz", "name": "MentalMath level 1"},
+    {"id": "2","FileName": "CustomEnglishQuiz", "name": "Verb test"},
+    {"id": "3","FileName": "CustomScienceQuiz", "name": "The Amazing galaxy"}
     ]
     }
