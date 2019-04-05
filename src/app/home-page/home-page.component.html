@@ -21,41 +21,9 @@
     </div>
     <div *ngIf="text != 'Category'" class="row itemsBlock">
         <div *ngFor="let cat of all_categories" class="col-md-4 col-md-4 col-12">
-            <button (click)="getQuiz(cat.id)" class="mat-background-primary"><img class="category-tile" src = "../../assets/images/museum.png"></button>
+            <button (click)="getQuiz(cat.id)" class="mat-background-primary"><img class="category-tile" src = {{cat.img}}></button>
+          <h4>{{cat.name}}</h4>
         </div>
-     <!-- <div class="row">
-        <div class="col-lg-4">
-          <img class="category-tile" src = "../../assets/images/museum.png">
-        </div>
-        <div class="col-lg-4">
-          <img class="category-tile" src = "../../assets/images/museum.png">
-        </div>
-        <div class="col-lg-4">
-          <img class="category-tile" src = "../../assets/images/museum.png">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="category-tile" src = "../../assets/images/museum.png">
-        </div>
-        <div class="col-lg-4">
-          <img class="category-tile" src = "../../assets/images/museum.png">
-        </div>
-        <div class="col-lg-4">
-          <img class="category-tile" src = "../../assets/images/museum.png">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="category-tile" src = "../../assets/images/museum.png">
-        </div>
-        <div class="col-lg-4">
-          <img class="category-tile" src = "../../assets/images/museum.png">
-        </div>
-        <div class="col-lg-4">
-          <img class="category-tile" src = "../../assets/images/museum.png">
-        </div>
-      </div>-->
     </div>
     <div *ngIf="text === 'Category'" class="list-group">
       <ul>
