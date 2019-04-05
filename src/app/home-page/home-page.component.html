@@ -98,11 +98,8 @@
                         </li>
                       </ul>
                 </li>
-                <li class="nav-item col-lg-6">
+                <li class="nav-item col-lg-12">
                   <a class="nav-link" href="#">TAKE A RANDOM QUIZ</a>
-                </li>
-                <li class="nav-item col-lg-6">
-                  <a class="nav-link" href="#">CREATE YOUR OWN QUIZ</a>
                 </li>
               </ul>    
           </nav>
@@ -118,7 +115,7 @@
             </ul>
           </div>
           <div class="col-lg-6">
-              Custom quiz
+              Play Custom quiz
             <ul>
               <li *ngFor="let custom of allCustom">
                 <button (click)="loadCustomQuiz(custom.FileName)">
