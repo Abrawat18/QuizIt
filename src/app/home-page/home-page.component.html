@@ -3,7 +3,7 @@
 </p>
 {{ageRange}}
 
-<div *ngIf="ageRange == 'teen'" class="container">
+<div *ngIf="ageRange == 'teen' && isQuizPageToBeLoaded == false" class="container">
     <div class="row">
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark col-lg-12">
    
@@ -55,7 +55,13 @@
       </div>
     </div>
     <div *ngIf="text === 'Category'" class="list-group">
-      <app-custom-quiz [allCustom]="allCustom"></app-custom-quiz>
+      <ul>
+        <li *ngFor="let custom of allCustom">
+          <button (click)="loadCustomQuiz(custom.FileName)">
+            {{custom.FileName}}
+          </button>
+        </li>
+      </ul>
     </div>
 
 </div>
