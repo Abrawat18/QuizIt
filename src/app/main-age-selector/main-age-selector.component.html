@@ -1,15 +1,17 @@
-
 <div class="container">
-  <div class="row">
-      <button class="col-lg-4 btn-primary" (click)="child('User')">Child</button>
-      <button class="col-lg-4 btn-primary" (click)="teen('User')">Teen</button>
-      <button class="col-lg-4 btn-primary" (click)="adult('User')">Adult</button>
+
+  <div class="row btn-group">
+      <button class="col-sm-2" (click)="child('User')">Child</button>
+      <button class="col-sm-2" (click)="teen('User')">Teen</button>
+      <button class="col-sm-2" (click)="adult('User')">Adult</button>
   </div>
+
+  <div class="row line-break"></div>
   
-  <div class="row">
+  <div class="row enter-username">
     <input #username (keyup.enter)="onEnterUsername(username.value)" 
            placeholder="Enter your username here.">
-    <button (click)="onEnterUsername(username.value)">Ok!</button>
+    <button class="btn-enter-username" (click)="onEnterUsername(username.value)">Ok!</button>
   </div>
 
 </div>

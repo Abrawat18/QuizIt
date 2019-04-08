@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QuizPageComponent } from './quiz-page.component';
+import { MainAgeSelectorComponent } from './main-age-selector.component';
 
-describe('QuizPageComponent', () => {
-  let component: QuizPageComponent;
-  let fixture: ComponentFixture<QuizPageComponent>;
+describe('MainAgeSelectorComponent', () => {
+  let component: MainAgeSelectorComponent;
+  let fixture: ComponentFixture<MainAgeSelectorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuizPageComponent ]
+      declarations: [ MainAgeSelectorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QuizPageComponent);
+    fixture = TestBed.createComponent(MainAgeSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

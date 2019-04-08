@@ -1,0 +1,36 @@
+.container {
+    background-color: lightcyan;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+h1 {
+    text-align: left;
+}
+
+h5 {
+    text-align: center;
+}
+
+button {
+    background-color: white;
+    border: 2px solid rgb(104, 214, 214);
+    color: black;
+    width: 100%;
+    border-radius: 12px;
+    text-align: center;
+    padding: 10%
+}
+
+.input-username {
+    align-self: center
+}
+
+.username-controls {
+    text-align: center;
+    align-self: center;
+}
+
+.change-age {
+    text-align: center;
+}

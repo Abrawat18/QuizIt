@@ -24,6 +24,8 @@ export class HomePageComponent implements OnInit {
   all_categories: any[];
   json_quiz: any;
   isQuizPageToBeLoaded = false;
+  isResultPageToBeShown = false;
+  userScore = 0;
 
   constructor(private data: DataService, private httpClient: HttpClient, private router: Router) { }
 
@@ -35,26 +37,60 @@ export class HomePageComponent implements OnInit {
       return obj2.hits - obj1.hits;
     });
   }
+  
+  getDifficultyFromAge(){
+    switch(this.ageRange){
+      case "child":{
+        return "easy";
+      }
+      case "teen":{
+        return "medium";
+      }
+      case "adult":{
+        return "hard";
+      }
+    }
+  }
 
   getQuiz(category_id: number) {
-    // let data = { : 10, category: category_id, difficulty: "easy", type: "multiple"};
-    const my_params = {params: new HttpParams().set('amount', '10').set('category', String(category_id))
-                      .set('difficulty', 'easy').set('type', 'boolean')};
+    const my_params = {params: new HttpParams().set('amount', SharedData.NUMBER_OF_QUESTIONS).set('category', String(category_id))
+                      .set('difficulty', this.getDifficultyFromAge()).set('type', SharedData.TYPE_OF_QUESTIONS)};
     this.httpClient.get<any[]>(SharedData.API_URL, my_params).subscribe(res => {
       this.json_quiz = res;
       this.isQuizPageToBeLoaded = true;
     }, err => {});
   }
 
+  public loadCustomQuiz(fileName) {
+    this.json_quiz = this.loadLanguage(fileName);
+    this.isQuizPageToBeLoaded = true;
+  }
+  public loadLanguage(lang: string) {
+    // @ts-ignore
+    return require('../../assets/data/' + lang + '.json');
+  }
+
   view() {
     this.text = this.text === 'Custom' ? 'Category' : 'Custom';
   }
- addToCustomQuiz(question) {
-    this.customQuestion.push(question);
-    console.log(this.customQuestion);
-  }
-  
- goToPage(pageName:string){
+
+  goToPage(pageName:string){
     this.router.navigate([`${pageName}`]);
+  }
+
+  onQuizComplete(score: number){
+    if(score==-1){
+      this.onQuitTapped()
+    }else{
+      this.userScore = score;
+      this.isResultPageToBeShown=true
+      this.isQuizPageToBeLoaded=false
+    }
+      
+  }
+
+  onQuitTapped(){
+    this.isQuizPageToBeLoaded = false;
+    this.isResultPageToBeShown=false;
   }
 }
