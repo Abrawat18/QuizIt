@@ -1,29 +1,32 @@
 .container {
-    background-color: lightcyan;
+    background-color: #004d99;
     margin-top: 10px;
     margin-bottom: 10px
 }
 
 h1 {
     text-align: left;
+    color: white;
 }
 
 h5 {
-    text-align: center;
+    text-align: right;
+    color: white;
 }
 
 button {
     background-color: white;
-    border: 2px solid rgb(104, 214, 214);
-    color: black;
-    width: 100%;
+    border: 2px solid white;
+    color: #004d99;
     border-radius: 12px;
     text-align: center;
-    padding: 10%
+    font-size: 18px;
 }
 
 .input-username {
-    align-self: center
+    height: 50%;
+    text-align: center;
+    align-self: center;
 }
 
 .username-controls {
@@ -33,4 +36,5 @@ button {
 
 .change-age {
     text-align: center;
+    align-self: center;
 }
