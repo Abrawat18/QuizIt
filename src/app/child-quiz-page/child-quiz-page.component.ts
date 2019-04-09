@@ -96,7 +96,12 @@ export class ChildQuizPageComponent implements OnInit {
 
   }
   buttonQuitTapped(){
-    this.quizScore.emit(-1)
+    if (confirm("Are you sure you want quit the quiz?")) {
+      this.quizScore.emit(-1)
+
+    } else {
+      return;
+    }
   }
 
 }
