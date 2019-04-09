@@ -71,7 +71,6 @@ export class QuizPageComponent implements OnInit {
       this.arrCurrentAnswer.sort();
       this.correctAnswer = quizObject.correct_answer;
     }
-    
   }
 
   validateAnswer(){
@@ -86,10 +85,12 @@ export class QuizPageComponent implements OnInit {
     this.userAnswer = ans;
     this.ansGivenForQuestion = true
   }
+
   showAlertForEmptyAns(){
     var txt;
       
   }
+  
   buttonNextTapped(){
     this.askConfirmation();
     this.handleOptionRendering();

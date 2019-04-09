@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input,Output,EventEmitter } from "@angular/core";
 import { DataService } from "../data.service";
 
 @Component({
@@ -9,16 +9,36 @@ import { DataService } from "../data.service";
 export class ResultPageComponent implements OnInit {
   @Input() arrChildQuiz;
   @Input() userPerformance;
+  @Output() changeCategory = new EventEmitter<number>();
+
   ageRange: number;
   score: number;
   currentUser: string;
+  grade = "";
+  areAnswersToBeShown = false;
 
   constructor(private data: DataService) {}
 
   ngOnInit() {
     this.data.currentMessage.subscribe(message => (this.ageRange = message));
     this.data.currentUser.subscribe(message => (this.currentUser = message));
+    if(this.ageRange == 1){
+      this.areAnswersToBeShown = true
+      this.mappingScoreToGradeForChild();
+    }
     this.score = this.userPerformance;
+  }
+
+  mappingScoreToGradeForChild(){
+    if(this.score<= 0.25){
+      this.grade = "B"
+    }else if(this.score > 0.25 && this.score <= 0.5){
+      this.grade = "B+"
+    }else if(this.score > 0.50 && this.score <= 0.75){
+      this.grade = "A"
+    }else{
+      this.grade = "A+"
+    }
   }
 
   buttonNewQuizTapped() {
@@ -26,11 +46,11 @@ export class ResultPageComponent implements OnInit {
   }
 
   buttonChangeCategoryTapped() {
-
+    this.changeCategory.emit(1)
   }
 
   buttonReviewAnswersTapped() {
-
+      this.areAnswersToBeShown = true
   }
 
   toUpgradeLevel(){

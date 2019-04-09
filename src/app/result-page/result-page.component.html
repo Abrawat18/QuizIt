@@ -8,7 +8,7 @@
       />
     </mat-grid-tile>
     <mat-grid-tile [colspan]="2" [rowspan]="4">
-      <h1><font face="Comic Sans MS" color="red">A+</font></h1>
+      <h1><font face="Comic Sans MS" color="red">{{grade}}</font></h1>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="5" [rowspan]="4">
       <img
@@ -17,14 +17,14 @@
       />
     </mat-grid-tile>
   </mat-grid-list>
-  <div class="container">
+  <div *ngIf="isQuizPageToBeLoaded == true && ageRange != 1 " class="container">
     <h1>Answers:</h1>
     <mat-list role="list">
       <mat-list-item *ngFor="let question of arrChildQuiz.results">
         <h1 mat-line>
           <b>{{ question.question }}</b>
         </h1>
-        <br />
+        <br/>
         <p mat-line>{{ question.correct_answer }}</p>
         <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
       </mat-list-item>
