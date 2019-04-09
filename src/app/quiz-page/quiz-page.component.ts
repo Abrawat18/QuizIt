@@ -133,7 +133,7 @@ export class QuizPageComponent implements OnInit {
   buttonHintTapped(){
     this.isOptionEnabled = true;
   }
-  
+
   buttonQuitTapped(){
     if (confirm("Are you sure you want quit the quiz?")) {
       this.quizScore.emit(-1)
