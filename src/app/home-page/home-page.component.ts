@@ -60,7 +60,10 @@ export class HomePageComponent implements OnInit {
       this.isQuizPageToBeLoaded = true;
     }, err => {});
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
   public loadCustomQuiz(fileName) {
     this.json_quiz = this.loadLanguage(fileName);
     this.isQuizPageToBeLoaded = true;
@@ -69,12 +72,19 @@ export class HomePageComponent implements OnInit {
     // @ts-ignore
     return require('../../assets/data/' + lang + '.json');
   }
+<<<<<<< HEAD
 
   view() {
     this.text = this.text === 'Custom' ? 'Category' : 'Custom';
   }
 
   goToPage(pageName:string){
+=======
+  view() {
+    this.text = this.text === 'Custom' ? 'Category' : 'Custom';
+  }
+ goToPage(pageName:string){
+>>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
     this.router.navigate([`${pageName}`]);
   }
 

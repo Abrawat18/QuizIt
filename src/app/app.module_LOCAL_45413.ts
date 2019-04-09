@@ -1,11 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-<<<<<<< HEAD
 import { MatGridListModule, MatSelectModule, MatCardModule, MatInputModule,MatButtonModule,MatListModule,MatDialogModule } from '@angular/material';
-=======
-import { MatGridListModule, MatSelectModule, MatCardModule, MatInputModule } from '@angular/material';
->>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -30,13 +26,9 @@ import { ChildQuizPageComponent } from './child-quiz-page/child-quiz-page.compon
     HomePageComponent,
     MainAgeSelectorComponent,
     HeaderOnPageComponent,
-<<<<<<< HEAD
     QuizPageComponent,
     ResultPageComponent,
     ChildQuizPageComponent
-=======
-    QuizPageComponent
->>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
   ],
   imports: [
     BrowserModule,
@@ -47,12 +39,9 @@ import { ChildQuizPageComponent } from './child-quiz-page/child-quiz-page.compon
     MatGridListModule,
     MatCardModule,
     MatInputModule,
-<<<<<<< HEAD
     MatListModule,
     MatDialogModule,
     MatButtonModule,
-=======
->>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
     HttpClientModule,
     BrowserAnimationsModule
   ],
