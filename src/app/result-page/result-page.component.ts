@@ -28,6 +28,6 @@ export class ResultPageComponent implements OnInit {
   }
 
   buttonReviewAnswersTapped() {
-    
+
   }
 }
