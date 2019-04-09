@@ -89,6 +89,23 @@ export class HomePageComponent implements OnInit {
     this.isQuizPageToBeLoaded = false;
     this.isResultPageToBeShown=false;
   }
+  getRandomQuiz() {
+    var category_id = Math.floor(Math.random() * (32 - 9) + 9);
+    const my_params = {
+      params: new HttpParams()
+        .set("amount", SharedData.NUMBER_OF_QUESTIONS)
+        .set("category", String(category_id))
+        .set("difficulty", this.getDifficultyFromAge())
+        .set("type", SharedData.TYPE_OF_QUESTIONS)
+    };
+    this.httpClient.get<any[]>(SharedData.API_URL, my_params).subscribe(
+      res => {
+        this.json_quiz = res;
+        this.isQuizPageToBeLoaded = true;
+      },
+      err => {}
+    );
+  }
 
   
 }

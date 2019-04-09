@@ -10,7 +10,7 @@
           <a class="navbar-button nav-link" href="#">QUIZ-IT</a>
         </li>
         <li class="nav-item col-lg-4">
-          <a class="navbar-button nav-link" href="#">RANDOM</a>
+          <a class="navbar-button nav-link" href="#" (click)="getRandomQuiz()">RANDOM</a>
         </li>
         <li class="nav-item col-lg-4">
           <a class="navbar-button nav-link" href="#" (click)="view()">{{text}}</a>
@@ -36,7 +36,7 @@
 
 <div *ngIf="ageRange == 'child' && isQuizPageToBeLoaded == false  && isResultPageToBeShown == false" class="container">  
   <div class="row">
-    <button class="btn-random-child" (click)="buttonRandomClicked()">PLAY RANDOM QUIZ</button>
+    <button class="btn-random-child" (click)="getRandomQuiz()">PLAY RANDOM QUIZ</button>
   </div>
   <div class="row itemsBlock">
     <div *ngFor="let cat of all_categories" class="col-md-4 col-lg-3 image-icon">
@@ -63,7 +63,7 @@
                       </ul>
                 </li>
                 <li class="nav-item col-lg-6">
-                  <a class="navbar-button nav-link" href="#">TAKE A RANDOM QUIZ</a>
+                  <a class="navbar-button nav-link" href="#" (click)="getRandomQuiz()">TAKE A RANDOM QUIZ</a>
                 </li>
               </ul>    
           </nav>
