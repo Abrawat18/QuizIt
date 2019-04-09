@@ -32,12 +32,12 @@
 </div>
 
 
-<div *ngIf="ageRange == 'child' && isQuizPageToBeLoaded == false" class="container">
+<div *ngIf="ageRange == 'child' && isQuizPageToBeLoaded == false" class="container">  
   <div class="row">
-    <button class="btn-some-main-category" (click)="buttonRandomClicked()">Play Randon Quiz</button>
+    <button class="btn-some-main-category" (click)="buttonRandomClicked()">Play Random Quiz</button>
   </div>
   <div class="row itemsBlock">
-  <div *ngFor="let cat of all_categories" class="col-md-4">
+  <div *ngFor="let cat of all_categories" class="col-md-4 col-lg-3">
     <button (click)="getQuiz(cat.id)" class="btn-internal-transparent"><img class="category-tile" src = {{cat.img}}></button>
     <h4>{{cat.name}}</h4>
   </div>
