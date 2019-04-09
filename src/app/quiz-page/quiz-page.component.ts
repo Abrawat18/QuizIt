@@ -27,6 +27,8 @@ export class QuizPageComponent implements OnInit {
   userAnswer = "";
   inputText = "";
   isQuizContentEmpty=false
+  category = ""
+  ansGivenForQuestion = false;
 
   constructor(private data: DataService) { }
 
@@ -56,10 +58,12 @@ export class QuizPageComponent implements OnInit {
   }
 
   updateCurrentQuestionAnsValue(){
+    this.ansGivenForQuestion = false;
     if(this.arrQuizContent.results.length==0){
         this.isQuizContentEmpty=true
     }else{
       this.arrQuestions = this.arrQuizContent.results;
+      this.category = this.arrQuestions[0].category;
       let quizObject = this.arrQuestions[this.currentQuestionIndex];
       this.currentQuestion = unescape(quizObject.question);
       quizObject.incorrect_answers.push(quizObject.correct_answer);
@@ -80,24 +84,14 @@ export class QuizPageComponent implements OnInit {
 
   buttonAnswerTapped(ans){
     this.userAnswer = ans;
+    this.ansGivenForQuestion = true
   }
   showAlertForEmptyAns(){
     var txt;
       
   }
   buttonNextTapped(){
-    if(!this.isOptionEnabled){
-      if(this.inputText === ""){
-        if (confirm("Are you sure you want to proceed without answering the quiz?")) {
-        
-        } else {
-          return;
-        }
-      }else{
-        this.userAnswer = this.inputText;
-      }
-      
-    }
+    this.askConfirmation();
     this.handleOptionRendering();
     this.validateAnswer();
     console.log(this.currentQuestionIndex,this.arrQuestions.length)
@@ -114,12 +108,39 @@ export class QuizPageComponent implements OnInit {
     this.inputText = "";
   }
 
+  askConfirmation(){
+    if(!this.isOptionEnabled){
+      if(this.inputText === ""){
+        this.alertToProcced()
+      }else{
+        this.userAnswer = this.inputText;
+      }
+    }else{
+      if(this.ansGivenForQuestion == false){
+        this.alertToProcced();
+      }
+    }
+  }
+  alertToProcced(){
+    if (confirm("Are you sure you want to proceed without answering the quiz?")) {
+        
+    } else {
+      return;
+    }
+  }
+
 
   buttonHintTapped(){
     this.isOptionEnabled = true;
   }
+  
   buttonQuitTapped(){
-    this.quizScore.emit(-1)
+    if (confirm("Are you sure you want quit the quiz?")) {
+      this.quizScore.emit(-1)
+
+    } else {
+      return;
+    }
   }
 
 }

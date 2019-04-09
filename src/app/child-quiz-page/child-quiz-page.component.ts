@@ -15,6 +15,7 @@ export class ChildQuizPageComponent implements OnInit {
   arrIncorrectAnswer = [];
   userScore = 0;
   isQuizContentEmpty = false;
+  displayHomePage = false;
 
   constructor() { }
 
@@ -40,7 +41,7 @@ export class ChildQuizPageComponent implements OnInit {
   }
     console.log(this.arrQuestions);
   }
-  handleScore(ans,question,prevAns){
+  handleScore(ans, question, prevAns){
     var currentAnsAreEqual = ans.toUpperCase() === question.correct_answer.toUpperCase();
     if(prevAns === ""){
       if(currentAnsAreEqual){
@@ -95,7 +96,12 @@ export class ChildQuizPageComponent implements OnInit {
 
   }
   buttonQuitTapped(){
-    this.quizScore.emit(-1)
+    if (confirm("Are you sure you want quit the quiz?")) {
+      this.quizScore.emit(-1)
+
+    } else {
+      return;
+    }
   }
 
 }

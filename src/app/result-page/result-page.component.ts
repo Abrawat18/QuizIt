@@ -16,12 +16,18 @@ export class ResultPageComponent implements OnInit {
 
   ngOnInit() {
     this.data.currentMessage.subscribe(message => (this.ageRange = message));
-    this.score = 10;
+    this.score = this.userPerformance;
   }
 
-  buttonNewQuizTapped() {}
+  buttonNewQuizTapped() {
+    
+  }
 
-  buttonChangeCategoryTapped() {}
+  buttonChangeCategoryTapped() {
 
-  buttonReviewAnswersTapped() {}
+  }
+
+  buttonReviewAnswersTapped() {
+    
+  }
 }

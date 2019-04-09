@@ -1,4 +1,4 @@
-.category-tile{
+.category-tile {
     height: 20vh;
     width: 20vh;
 }
@@ -81,4 +81,11 @@ h5 {
 
 .extra-options {
   display: contents;
+}
+
+.list-group {
+  display: inline-block;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
 }
