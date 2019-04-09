@@ -1,0 +1,17 @@
+.btn {
+  background-color: deepskyblue;
+  border: 2px solid deepskyblue;
+  color: white;
+  padding: 3%;
+  margin: 5px;
+  width: 30%;
+  height: 10%;
+}
+.container {
+  background-color: lightcyan;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#result {
+  width: 100%;
+}

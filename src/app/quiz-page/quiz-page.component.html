@@ -1,0 +1,56 @@
+<p>
+  quiz-page works!
+</p>
+<div *ngIf="isQuizContentEmpty == true" class="container">
+    <label>No Questions in this category!!,Please select new category</label>
+</div>
+<mat-card>
+<mat-grid-list cols="5" >
+    <mat-grid-list cols="12" style="background-color:lightgreen">
+        <mat-grid-tile
+            [colspan]="12"
+            [rowspan]="1"
+            [style.background]="'lightpink'">
+          <mat-card class="">Category:</mat-card>
+          <div *ngIf="ageRange == 'adult'" >
+              <mat-card class="">Score: {{userScore}}</mat-card>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <mat-grid-list cols="12" style="background-color:lightblue">
+          <mat-grid-tile
+              [colspan]="12"
+              [rowspan]="3"
+              style.background="lightgreen">
+            {{currentQuestion}}
+          </mat-grid-tile>
+        </mat-grid-list>
+        <div *ngIf="isOptionEnabled == false" class="container">
+            <mat-form-field>
+                <textarea matInput placeholder="Type Answer" [(ngModel)]="inputText"></textarea>
+            </mat-form-field>
+            <button mat-button (click)="buttonHintTapped()">Hint</button>
+        </div>
+        <div *ngIf="isOptionEnabled == true" class="container">
+            <mat-grid-list cols="12" rowHeight="12:3" style="background-color:lightpink">
+                <mat-grid-tile
+                *ngFor="let ans of arrCurrentAnswer"
+                [colspan]="6"
+                [rowspan]="3"
+                >
+              <button mat-button (click)="buttonAnswerTapped(ans)">{{ans}}</button>
+            </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+          
+  </mat-grid-list>
+</mat-card>
+<mat-grid-list cols="12">
+    <mat-grid-tile
+        [colspan]="12"
+        [rowspan]="1"
+        style.background="lightgreen">
+        <button mat-button (click)="buttonNextTapped()">Next</button>
+        <button mat-button (click)="buttonQuitTapped()">Quit</button>
+    </mat-grid-tile>
+  </mat-grid-list>

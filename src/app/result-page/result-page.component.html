@@ -1,0 +1,69 @@
+<h2>Your Results</h2>
+<div *ngIf="ageRange == 'child'; else adultTeen" class="list-group">
+  <mat-grid-list cols="12">
+    <mat-grid-tile [colspan]="5" [rowspan]="4">
+      <img
+        src="../../assets/images/minions2.png"
+        style="height: 100%; width: 80%; object-fit: contain"
+      />
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="4">
+      <h1><font face="Comic Sans MS" color="red">A+</font></h1>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="5" [rowspan]="4">
+      <img
+        src="../../assets/images/minion.png"
+        style="height: 100%; width: 100%; object-fit: contain"
+      />
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="container">
+    <h1>Answers:</h1>
+    <mat-list role="list">
+      <mat-list-item *ngFor="let question of arrChildQuiz.results">
+        <h1 mat-line>
+          <b>{{ question.question }}</b>
+        </h1>
+        <br />
+        <p mat-line>{{ question.correct_answer }}</p>
+        <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <mat-grid-list cols="1" rowHeight="9:1">
+    <button class="btn" (click)="buttonNewQuizTapped()">
+      New Quiz
+    </button>
+    <button class="btn" (click)="buttonChangeCategoryTapped()">
+      Change Category
+    </button>
+  </mat-grid-list>
+</div>
+<ng-template #adultTeen>
+  <div>
+    <mat-grid-list cols="1" rowHeight="6:1">
+      <mat-grid-tile>
+        <h4>
+          You scored
+          <span class="badge badge-pill badge-info">{{ score }} </span> out of
+          10!
+        </h4>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="1" rowHeight="6:1">
+      <div>
+        <button class="btn" (click)="buttonNewQuizTapped()">New Quiz</button>
+      </div>
+      <div>
+        <button class="btn" (click)="buttonChangeCategoryTapped()">
+          Change Category
+        </button>
+      </div>
+      <div>
+        <button class="btn" (click)="buttonReviewAnswersTapped()">
+          Review Answers
+        </button>
+      </div>
+    </mat-grid-list>
+  </div>
+</ng-template>
