@@ -26,21 +26,22 @@ export class ChildQuizPageComponent implements OnInit {
   }
 
   handleQuizContent(){
-    console.log(this.arrQuizContent.results.length)
-    if(this.arrQuizContent.results.length==0){
-      this.isQuizContentEmpty=true
-    }else{
-    this.arrQuestions = this.arrQuizContent.results;
-    this.arrQuestions.forEach( (quizObject, index) => {
-      console.log(quizObject);
-      quizObject.incorrect_answers.push(quizObject.correct_answer);
-      quizObject.incorrect_answers = quizObject.incorrect_answers.sort();
-      this.arrIncorrectAnswer.push(quizObject.incorrect_answers);
-      this.arrUserAnswer.push("");
-    });
-  }
+      console.log(this.arrQuizContent.results.length)
+      if(this.arrQuizContent.results.length==0){
+        this.isQuizContentEmpty=true
+      }else{
+      this.arrQuestions = this.arrQuizContent.results;
+      this.arrQuestions.forEach( (quizObject, index) => {
+        console.log(quizObject);
+        quizObject.incorrect_answers.push(quizObject.correct_answer);
+        quizObject.incorrect_answers = quizObject.incorrect_answers.sort();
+        this.arrIncorrectAnswer.push(quizObject.incorrect_answers);
+        this.arrUserAnswer.push("");
+      });
+    }
     console.log(this.arrQuestions);
   }
+  
   handleScore(ans, question, prevAns){
     var currentAnsAreEqual = ans.toUpperCase() === question.correct_answer.toUpperCase();
     if(prevAns === ""){
@@ -66,6 +67,7 @@ export class ChildQuizPageComponent implements OnInit {
   }
   buttonAnswerTapped(ans,question,index){
       let prevAns = this.arrUserAnswer[index];
+      console.log(prevAns)
       if(prevAns.toUpperCase() === ans.toUpperCase()){
         //do nothing just old answer retapped
       } else{
@@ -76,7 +78,9 @@ export class ChildQuizPageComponent implements OnInit {
 
   buttonSubmitTapped(){
     let areAllAnswerGiven = true;
-    for(let ans in this.arrUserAnswer){
+    for(let index in this.arrUserAnswer){
+      let ans = this.arrUserAnswer[index];
+        console.log(ans)
         if (ans === ""){
           areAllAnswerGiven = false;
           break;
@@ -93,12 +97,11 @@ export class ChildQuizPageComponent implements OnInit {
     }
     this.checkIfUserLevelIsToBeUpgraded();
     console.log(this.userScore);
-
   }
+
   buttonQuitTapped(){
     if (confirm("Are you sure you want quit the quiz?")) {
       this.quizScore.emit(-1)
-
     } else {
       return;
     }
