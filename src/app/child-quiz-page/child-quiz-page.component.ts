@@ -15,6 +15,7 @@ export class ChildQuizPageComponent implements OnInit {
   arrIncorrectAnswer = [];
   userScore = 0;
   isQuizContentEmpty = false;
+  displayHomePage = false;
 
   constructor(private data: DataService) { }
 
@@ -40,7 +41,7 @@ export class ChildQuizPageComponent implements OnInit {
   }
     console.log(this.arrQuestions);
   }
-  handleScore(ans,question,prevAns){
+  handleScore(ans, question, prevAns){
     var currentAnsAreEqual = ans.toUpperCase() === question.correct_answer.toUpperCase();
     if(prevAns === ""){
       if(currentAnsAreEqual){

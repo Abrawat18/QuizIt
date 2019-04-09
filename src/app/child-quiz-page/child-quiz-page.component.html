@@ -1,12 +1,11 @@
-<p>
-  child-quiz-page works!
-</p>
-<div *ngIf="isQuizContentEmpty == true ; else quizView" class="container">
-    <label>No Questions in this category!!,Please select new category</label>
+<div *ngIf="isQuizContentEmpty == true; else quizView" class="container">
+    <h5>No Questions in this category!</h5> 
+    <h5>Please choose a new category!</h5>
+    <button class="btn-submit-user-input" (click)="changeCategory()">Choose new category</button>
 </div>
 <ng-template #quizView>
   <mat-list role="list">
-      <mat-card  *ngFor="let ques of arrQuestions;index as i" class="example-card">
+      <mat-card  *ngFor="let ques of arrQuestions; index as i" class="example-card">
           <mat-card-header>
             <mat-card-title>{{ques.question}}</mat-card-title>
           </mat-card-header>

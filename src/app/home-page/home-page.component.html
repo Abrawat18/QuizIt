@@ -4,7 +4,6 @@
     <div class="row">
   <nav class="navbar navbar-expand-sm col-lg-12">
    
-        <!-- <a class="navbar-button navbar-link col-lg-4" href="#">QUIZ-IT</a> -->
       <!-- Links -->
       <ul class="navbar-nav col-lg-12">
         <li class="nav-item col-lg-4">
@@ -25,8 +24,8 @@
           <h6>{{cat.name}}</h6>
         </div>
     </div>
-    <div *ngIf="text === 'CATEGORY'" class="list-group">
-      <div class="row align-middle" *ngFor="let custom of allCustom">
+    <div *ngIf="text === 'CATEGORY'" class="list-group" >
+      <div class="row extra-options" *ngFor="let custom of allCustom">
         <button class="btn-main-category" (click)="loadCustomQuiz(custom.FileName)">
           {{custom.name}}
         </button>
