@@ -17,7 +17,7 @@ export class ChildQuizPageComponent implements OnInit {
   isQuizContentEmpty = false;
   displayHomePage = false;
 
-  constructor(private data: DataService) { }
+  constructor() { }
 
   ngOnInit() {
     setTimeout(() => {

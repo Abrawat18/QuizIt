@@ -1,6 +1,6 @@
 <p xmlns="http://www.w3.org/1999/html">
 </p>
-<div *ngIf="ageRange == 'teen' && isQuizPageToBeLoaded == false" class="container">
+<div *ngIf="ageRange == 2 && isQuizPageToBeLoaded == false" class="container">
     <div class="row">
   <nav class="navbar navbar-expand-sm col-lg-12">
    
@@ -34,7 +34,7 @@
 </div>
 
 
-<div *ngIf="ageRange == 'child' && isQuizPageToBeLoaded == false  && isResultPageToBeShown == false" class="container">  
+<div *ngIf="ageRange == 1 && isQuizPageToBeLoaded == false  && isResultPageToBeShown == false" class="container">  
   <div class="row">
     <button class="btn-random-child" (click)="getRandomQuiz()">PLAY RANDOM QUIZ</button>
   </div>
@@ -47,7 +47,7 @@
   </div>
   
 
-<div *ngIf="ageRange == 'adult' && isQuizPageToBeLoaded == false && isResultPageToBeShown == false" class="container">
+<div *ngIf="ageRange == 3 && isQuizPageToBeLoaded == false && isResultPageToBeShown == false" class="container">
         <div class="row">
           <nav class="navbar navbar-expand-sm col-lg-12">
             <!-- Links -->
@@ -86,10 +86,10 @@
     </div>
   </div>
 
-  <div *ngIf="isQuizPageToBeLoaded == true && ageRange=='child'" class="list-group">
+  <div *ngIf="isQuizPageToBeLoaded == true && ageRange== 1" class="list-group">
     <app-child-quiz-page [arrQuizContent]="json_quiz" (quizScore)="onQuizComplete($event)" ></app-child-quiz-page>
   </div>  
-  <div *ngIf="isQuizPageToBeLoaded == true && ageRange != 'child' " class="list-group">
+  <div *ngIf="isQuizPageToBeLoaded == true && ageRange != 1 " class="list-group">
       <app-quiz-page [arrQuizContent]="json_quiz" (quizScore)="onQuizComplete($event)"></app-quiz-page>
     </div>  
    <div *ngIf="isResultPageToBeShown == true" class="list-group">

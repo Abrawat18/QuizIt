@@ -9,7 +9,7 @@ import { User } from '../main-age-selector/user';
 })
 export class HeaderOnPageComponent implements OnInit {
   logo = 'QUIZ-IT';
-  ageRange: string;
+  ageRange: number;
   username: string;
   usernameToggle: Boolean = false;
   createUserNameBtn: String = "Create username";
@@ -48,7 +48,7 @@ export class HeaderOnPageComponent implements OnInit {
   }
 
   goToAgeSelect(){
-    this.data.changeMessage("default");
+    this.data.changeMessage(0);
     this.data.changeUser("User");
   }
 }

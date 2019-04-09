@@ -9,7 +9,7 @@ import { DataService } from "../data.service";
 export class ResultPageComponent implements OnInit {
   @Input() arrChildQuiz;
   @Input() userPerformance;
-  ageRange: string;
+  ageRange: number;
   score: number;
 
   constructor(private data: DataService) {}
