@@ -24,6 +24,7 @@ export class HomePageComponent implements OnInit {
   isQuizPageToBeLoaded = false;
   isResultPageToBeShown = false;
   userScore = 0;
+  currentCategoryID = 0;
 
 
   constructor(private data: DataService, private httpClient: HttpClient, private router: Router) { }
@@ -52,6 +53,7 @@ export class HomePageComponent implements OnInit {
   }
 
   getQuiz(category_id: number) {
+    this.currentCategoryID = category_id;
     const my_params = {params: new HttpParams().set('amount', SharedData.NUMBER_OF_QUESTIONS).set('category', String(category_id))
                       .set('difficulty', this.getDifficultyFromAge()).set('type', SharedData.TYPE_OF_QUESTIONS)};
     this.httpClient.get<any[]>(SharedData.API_URL, my_params).subscribe(res => {
@@ -105,11 +107,10 @@ export class HomePageComponent implements OnInit {
     );
   }
   changeCategoryAfterShowingResult(number: number){
-    if(number == 1){
-      this.isQuizPageToBeLoaded = false;
-      this.isResultPageToBeShown=false;
+    this.isQuizPageToBeLoaded = false;
+    this.isResultPageToBeShown=false;
+    if(number == 2){
+      this.getQuiz(this.currentCategoryID)
     }
   }
-
-  
 }

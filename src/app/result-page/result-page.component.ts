@@ -9,7 +9,7 @@ import { DataService } from "../data.service";
 export class ResultPageComponent implements OnInit {
   @Input() arrChildQuiz;
   @Input() userPerformance;
-  @Output() changeCategory = new EventEmitter<number>();
+  @Output() resultActions = new EventEmitter<number>();
 
   ageRange: number;
   score: number;
@@ -22,11 +22,11 @@ export class ResultPageComponent implements OnInit {
   ngOnInit() {
     this.data.currentMessage.subscribe(message => (this.ageRange = message));
     this.data.currentUser.subscribe(message => (this.currentUser = message));
+    this.score = this.userPerformance;
     if(this.ageRange == 1){
       this.areAnswersToBeShown = true
       this.mappingScoreToGradeForChild();
     }
-    this.score = this.userPerformance;
   }
 
   mappingScoreToGradeForChild(){
@@ -34,19 +34,29 @@ export class ResultPageComponent implements OnInit {
       this.grade = "B"
     }else if(this.score > 0.25 && this.score <= 0.5){
       this.grade = "B+"
-    }else if(this.score > 0.50 && this.score <= 0.75){
+    }else if(this.score > 0.50 && this.score < 0.80){
       this.grade = "A"
     }else{
       this.grade = "A+"
+      this.askUserToUpgradeLevel();
+    }
+  }
+  
+  askUserToUpgradeLevel(){
+    if (confirm("You have performed above average!!Do you want to upgrade your level?")) {
+        this.toUpgradeLevel()
+    } else {
+      return;
     }
   }
 
   buttonNewQuizTapped() {
-    
+    this.resultActions.emit(2)
+
   }
 
   buttonChangeCategoryTapped() {
-    this.changeCategory.emit(1)
+    this.resultActions.emit(1)
   }
 
   buttonReviewAnswersTapped() {
