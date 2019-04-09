@@ -16,7 +16,7 @@ export class QuizPageComponent implements OnInit {
   @Input() arrQuizContent;
   @Output() quizScore = new EventEmitter<number>();
 
-  ageRange: string;
+  ageRange: number;
   arrQuestions;
   currentQuestionIndex: number;
   currentQuestion: string;
@@ -42,7 +42,7 @@ export class QuizPageComponent implements OnInit {
   }
 
   handleOptionRendering(){
-    if(this.ageRange == "adult"){
+    if(this.ageRange == 3){
       this.isOptionEnabled = false;
     }else{
       this.isOptionEnabled = true;
@@ -103,7 +103,7 @@ export class QuizPageComponent implements OnInit {
     console.log(this.currentQuestionIndex,this.arrQuestions.length)
     if(this.currentQuestionIndex == this.arrQuestions.length-1){
         this.quizScore.emit(this.userScore)
-        if(this.ageRange == 'teen'){
+        if(this.ageRange == 2){
           this.checkIfUserLevelIsToBeUpgraded();
         }
         console.log("emiited");

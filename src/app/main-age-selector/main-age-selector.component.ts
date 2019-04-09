@@ -8,27 +8,26 @@ import { DataService } from '../data.service';
 })
 
 export class MainAgeSelectorComponent implements OnInit {
-  ageRange: string;
+  ageRange: number;
   compVisible = true;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    // this.data.currentMessage.subscribe(message => this.ageRange = message)
   }
 
   child(username: string) {
-    this.data.changeMessage("child");
+    this.data.changeMessage(1);
     this.data.changeUser(username);
     this.compVisible = false;
   }
   teen(username: string) {
-    this.data.changeMessage("teen");
+    this.data.changeMessage(2);
     this.data.changeUser(username);
     this.compVisible = false;
   }
   adult(username: string) {
-    this.data.changeMessage("adult");
+    this.data.changeMessage(3);
     this.data.changeUser(username);
     this.compVisible = false;
   }
@@ -36,11 +35,11 @@ export class MainAgeSelectorComponent implements OnInit {
     var existingUsernames = JSON.parse(localStorage.getItem("usernames"));
     if(existingUsernames != null){
       for (var user of existingUsernames){
-        if (user.name == value && user.age == "child"){
+        if (user.name == value && user.age == 1){
           this.child(user.name);
-        } else if (user.name == value && user.age == "teen"){
+        } else if (user.name == value && user.age == 2){
           this.teen(user.name);
-        } else if (user.name == value && user.age == "adult"){
+        } else if (user.name == value && user.age == 3){
           this. adult(user.name);
         }
       }

@@ -8,7 +8,7 @@ import { DataService } from './data.service';
 })
 
 export class AppComponent implements OnInit{
-  ageRange: string;
+  ageRange: number;
 
   constructor(private data: DataService){}
 

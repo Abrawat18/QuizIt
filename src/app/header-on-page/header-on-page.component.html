@@ -9,12 +9,12 @@
       <input class="enter-user-input" #newUsername [hidden]="!usernameToggle" placeholder="Username"/>
     </div>
       
-    <div *ngIf="ageRange!='default'" class="col-md-2 username-controls">
+    <div *ngIf="ageRange!=0" class="col-md-2 username-controls">
       <button class="btn-username-controls" *ngIf="username=='User'" (click)="addUserOnClick(newUsername.value)">{{createUserNameBtn}}</button>
       <h5 *ngIf="username!='User'">Hi {{ username }}!</h5>
     </div>
       
-    <div *ngIf="ageRange!='default' && username=='User'" class="col-md-2 change-age">
+    <div *ngIf="ageRange!=0 && username=='User'" class="col-md-2 change-age">
       <button class="btn-change-age" (click)="goToAgeSelect()">Change Age</button>
     </div>
   

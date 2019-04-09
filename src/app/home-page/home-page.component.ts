@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import CustomQuizzes from '../../assets/data/custom-quiz.json';
 import categories from '../../assets/data/Categories.json';
-import { saveAs } from 'file-saver';
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { SharedData } from '../global/sharedData';
 import { Router } from '@angular/router';
 
@@ -17,7 +15,7 @@ import { Router } from '@angular/router';
 
 export class HomePageComponent implements OnInit {
 
-  ageRange: string;
+  ageRange: number;
   text = 'CUSTOM';
   allCustom;
   customQuestion: any[];
@@ -41,13 +39,13 @@ export class HomePageComponent implements OnInit {
   
   getDifficultyFromAge(){
     switch(this.ageRange){
-      case "child":{
+      case 1:{
         return "easy";
       }
-      case "teen":{
+      case 2:{
         return "medium";
       }
-      case "adult":{
+      case 3:{
         return "hard";
       }
     }

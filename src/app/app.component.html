@@ -1,5 +1,5 @@
 <div style="text-align:center">
 <app-header-on-page></app-header-on-page>
-<app-main-age-selector *ngIf="ageRange == 'default'"></app-main-age-selector>
-<app-home-page *ngIf="ageRange != 'default'"></app-home-page>
+<app-main-age-selector *ngIf="ageRange == 0"></app-main-age-selector>
+<app-home-page *ngIf="ageRange != 0"></app-home-page>
 <router-outlet></router-outlet>
