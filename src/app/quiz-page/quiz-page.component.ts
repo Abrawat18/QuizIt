@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit ,Input,Output } from '@angular/core';
+import { Component, EventEmitter, OnInit ,Input,Output, HostListener } from '@angular/core';
 import { DataService } from '../data.service';
 
 @Component({
@@ -8,6 +8,11 @@ import { DataService } from '../data.service';
 })
 
 export class QuizPageComponent implements OnInit {
+
+  @HostListener("window:beforeunload", ["$event"]) unloadHandler(event: Event) {
+    event.returnValue = false;
+}
+
   @Input() arrQuizContent;
   @Output() quizScore = new EventEmitter<number>();
 
