@@ -1,21 +1,44 @@
 .container {
+<<<<<<< HEAD
+    background-color: lightcyan;
+=======
     background-color: #004d99;
+>>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
     margin-top: 10px;
     margin-bottom: 10px
 }
 
 h1 {
     text-align: left;
+<<<<<<< HEAD
+}
+
+h5 {
+    text-align: center;
+=======
     color: white;
 }
 
 h5 {
     text-align: right;
     color: white;
+>>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
 }
 
 button {
     background-color: white;
+<<<<<<< HEAD
+    border: 2px solid rgb(104, 214, 214);
+    color: black;
+    width: 100%;
+    border-radius: 12px;
+    text-align: center;
+    padding: 10%
+}
+
+.input-username {
+    align-self: center
+=======
     border: 2px solid white;
     color: #004d99;
     border-radius: 12px;
@@ -27,6 +50,7 @@ button {
     height: 50%;
     text-align: center;
     align-self: center;
+>>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
 }
 
 .username-controls {
@@ -36,5 +60,8 @@ button {
 
 .change-age {
     text-align: center;
+<<<<<<< HEAD
+=======
     align-self: center;
+>>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
 }

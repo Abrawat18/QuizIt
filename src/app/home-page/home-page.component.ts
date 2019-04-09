@@ -24,6 +24,8 @@ export class HomePageComponent implements OnInit {
   all_categories: any[];
   json_quiz: any;
   isQuizPageToBeLoaded = false;
+  isResultPageToBeShown = false;
+  userScore = 0;
 
   constructor(private data: DataService, private httpClient: HttpClient, private router: Router) { }
 
@@ -58,6 +60,10 @@ export class HomePageComponent implements OnInit {
       this.isQuizPageToBeLoaded = true;
     }, err => {});
   }
+<<<<<<< HEAD
+
+=======
+>>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
   public loadCustomQuiz(fileName) {
     this.json_quiz = this.loadLanguage(fileName);
     this.isQuizPageToBeLoaded = true;
@@ -66,10 +72,35 @@ export class HomePageComponent implements OnInit {
     // @ts-ignore
     return require('../../assets/data/' + lang + '.json');
   }
+<<<<<<< HEAD
+
+  view() {
+    this.text = this.text === 'Custom' ? 'Category' : 'Custom';
+  }
+
+  goToPage(pageName:string){
+=======
   view() {
     this.text = this.text === 'CUSTOM' ? 'CATEGORY' : 'CUSTOM';
   }
  goToPage(pageName:string){
+>>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
     this.router.navigate([`${pageName}`]);
+  }
+
+  onQuizComplete(score: number){
+    if(score==-1){
+      this.onQuitTapped()
+    }else{
+      this.userScore = score;
+      this.isResultPageToBeShown=true
+      this.isQuizPageToBeLoaded=false
+    }
+      
+  }
+
+  onQuitTapped(){
+    this.isQuizPageToBeLoaded = false;
+    this.isResultPageToBeShown=false;
   }
 }

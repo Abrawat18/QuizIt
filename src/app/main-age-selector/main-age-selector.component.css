@@ -1,4 +1,26 @@
 .btn-group {
+<<<<<<< HEAD
+    display: inline-block;
+    margin-top: 2%;
+    width: 100%
+}
+
+.btn-group button {
+    background-color: deepskyblue;
+    border: 2px solid deepskyblue;
+    color: white;
+    padding: 3%;
+    margin: 10px;
+    width: 100%
+}
+
+.btn-group button:hover {
+    background-color: lightskyblue;
+}
+
+.line-break {
+    background-color: lightgrey;
+=======
     display: inline-flex;
     justify-content: space-evenly;
     margin-top: 2%;
@@ -8,6 +30,7 @@
 
 .line-break {
     background-color: lightskyblue;
+>>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
     width: 100%;
     height: 1px;
 }
@@ -16,7 +39,19 @@
     align-content: center;
     height: 100px;
     display: inline-flex;
+<<<<<<< HEAD
+}
+
+.btn-enter-username {
+    background-color: white;
+    border-color: 5px solid gainsboro;
+    margin: 2px;
+    color: black
+=======
     justify-content: space-evenly;
+<<<<<<< HEAD
+>>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
+=======
 }
 
 .enter-user-input {
@@ -49,4 +84,5 @@
 
 .btn-age-category:hover {
     background-color: deepskyblue;
+>>>>>>> dc3d210094b1d1693be05e127f29349f77e2e68c
 }
