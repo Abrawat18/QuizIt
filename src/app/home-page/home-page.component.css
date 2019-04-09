@@ -1,13 +1,12 @@
 .category-tile{
-    height: 15em;
-    width: 15em;
+    height: 20vh;
+    width: 20vh;
 }
 <<<<<<< HEAD
 button {
 =======
 
 .container {
-  background-color: lightcyan;
   margin-top: 10px;
   margin-bottom: 10px
 }
@@ -50,4 +49,34 @@ button {
 
 h2 {
   text-align: left;
+}
+
+.btn-main-category {
+  background-color: #3399ff;
+  border: 2px solid #3399ff;
+  color: white;
+  width: 100%;
+  padding: 2%;
+  margin: 10px;
+}
+
+.btn-main-category:hover {
+  background-color: deepskyblue;
+}
+
+.navbar {
+  border-top: 2px solid #3399ff;
+  border-bottom: 2px solid #3399ff;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.navbar-button {
+  color: #3399ff;
+  font-size: 20px;
+}
+
+.navbar-button:hover {
+  background-color: #3399ff;
+  color: white;
 }

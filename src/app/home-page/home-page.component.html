@@ -2,25 +2,32 @@
 </p>
 <div *ngIf="ageRange == 'teen' && isQuizPageToBeLoaded == false" class="container">
     <div class="row">
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark col-lg-12">
+  <nav class="navbar navbar-expand-sm col-lg-12">
    
-        <a class="navbar-brand col-lg-4" href="#">QUIZ-IT</a>
+        <!-- <a class="navbar-button navbar-link col-lg-4" href="#">QUIZ-IT</a> -->
       <!-- Links -->
-      <ul class="navbar-nav col-lg-8">
-        <li class="nav-item col-lg-6">
-          <a class="nav-link" href="#">RANDOM</a>
+      <ul class="navbar-nav col-lg-12">
+        <li class="nav-item col-lg-4">
+          <a class="navbar-button nav-link" href="#">QUIZ-IT</a>
         </li>
-        <li class="nav-item col-lg-6">
-          <a class="nav-link" href="#" (click)="view()">{{text}}</a>
+        <li class="nav-item col-lg-4">
+          <a class="navbar-button nav-link" href="#">RANDOM</a>
+        </li>
+        <li class="nav-item col-lg-4">
+          <a class="navbar-button nav-link" href="#" (click)="view()">{{text}}</a>
         </li>
       </ul>
   </nav>
     </div>
     <div *ngIf="text != 'Category'" class="row itemsBlock">
+<<<<<<< HEAD
         <div *ngFor="let cat of all_categories" class="col-md-4 col-md-4 col-12">
 <<<<<<< HEAD
             <button (click)="getQuiz(cat.id)" class="mat-background-primary"><img class="category-tile" src = {{cat.img}}></button>
 =======
+=======
+        <div *ngFor="let cat of all_categories" class="col-md-4 col-lg-3">
+>>>>>>> dc3d210094b1d1693be05e127f29349f77e2e68c
             <button (click)="getQuiz(cat.id)" class="btn-internal-transparent"><img class="category-tile" src = {{cat.img}}></button>
 >>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
           <h4>{{cat.name}}</h4>
@@ -32,8 +39,12 @@
         <button (click)="loadCustomQuiz(custom.FileName)">
 =======
       <div class="row align-middle" *ngFor="let custom of allCustom">
+<<<<<<< HEAD
         <button class="btn-some-main-category" (click)="loadCustomQuiz(custom.FileName)">
 >>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
+=======
+        <button class="btn-main-category" (click)="loadCustomQuiz(custom.FileName)">
+>>>>>>> dc3d210094b1d1693be05e127f29349f77e2e68c
           {{custom.name}}
         </button>
       </div>
@@ -41,6 +52,7 @@
 </div>
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <div *ngIf="ageRange == 'child' && isQuizPageToBeLoaded == false && isResultPageToBeShown == false" class="container">
   <div class="row btn-group">
@@ -51,11 +63,14 @@
     <button (click)="getQuiz(cat.id)" class="mat-background-primary"><img class="category-tile" src = {{cat.img}}></button>
 =======
 <div *ngIf="ageRange == 'child' && isQuizPageToBeLoaded == false" class="container">
+=======
+<div *ngIf="ageRange == 'child' && isQuizPageToBeLoaded == false" class="container">  
+>>>>>>> dc3d210094b1d1693be05e127f29349f77e2e68c
   <div class="row">
-    <button class="btn-some-main-category" (click)="buttonRandomClicked()">Play Randon Quiz</button>
+    <button class="btn-main-category" (click)="buttonRandomClicked()">Play Randon Quiz</button>
   </div>
   <div class="row itemsBlock">
-  <div *ngFor="let cat of all_categories" class="col-md-4">
+  <div *ngFor="let cat of all_categories" class="col-md-4 col-lg-3">
     <button (click)="getQuiz(cat.id)" class="btn-internal-transparent"><img class="category-tile" src = {{cat.img}}></button>
 >>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
     <h4>{{cat.name}}</h4>
@@ -96,8 +111,12 @@
                 <button (click)="getQuiz(cat.id)" class="btn-primary">
 =======
             <div class="row" *ngFor="let cat of all_categories | slice:0:8">
+<<<<<<< HEAD
                 <button (click)="getQuiz(cat.id)" class="btn-some-main-category">
 >>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
+=======
+                <button (click)="getQuiz(cat.id)" class="btn-main-category">
+>>>>>>> dc3d210094b1d1693be05e127f29349f77e2e68c
                     {{cat.name}} ({{cat.hits}} hits)
                 </button>
             </div>
@@ -109,8 +128,12 @@
                 <button (click)="loadCustomQuiz(custom.FileName)">
 =======
             <div class="row" *ngFor="let custom of allCustom">
+<<<<<<< HEAD
                 <button class="btn-some-main-category" (click)="loadCustomQuiz(custom.FileName)">
 >>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
+=======
+                <button class="btn-main-category" (click)="loadCustomQuiz(custom.FileName)">
+>>>>>>> dc3d210094b1d1693be05e127f29349f77e2e68c
                   {{custom.name}}
                 </button>
             </div>

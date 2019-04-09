@@ -49,5 +49,40 @@
     color: black
 =======
     justify-content: space-evenly;
+<<<<<<< HEAD
 >>>>>>> e9e35829d2ce7f09f13915d27d02c74c6f209fb3
+=======
+}
+
+.enter-user-input {
+    border: none;
+    border-bottom: 2px solid #004d99;  
+    height: 50%;
+    text-align: center;
+    align-self: center;
+}
+
+.btn-submit-user-input {
+    background-color: white;
+    border: 2px solid #004d99;
+    margin: 20px;
+    color: #004d99;
+    border-radius: 50%;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.btn-age-category {
+    background-color: #3399ff;
+    border: 2px solid #3399ff;
+    color: white;
+    width: 100%;
+    font-size: 24px;
+    padding: 2%;
+    margin: 10px;
+}
+
+.btn-age-category:hover {
+    background-color: deepskyblue;
+>>>>>>> dc3d210094b1d1693be05e127f29349f77e2e68c
 }
