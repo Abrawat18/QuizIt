@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
 
   ageRange: string;
-  text = 'Custom';
+  text = 'CUSTOM';
   allCustom;
   customQuestion: any[];
   all_categories: any[];
@@ -67,7 +67,7 @@ export class HomePageComponent implements OnInit {
     return require('../../assets/data/' + lang + '.json');
   }
   view() {
-    this.text = this.text === 'Custom' ? 'Category' : 'Custom';
+    this.text = this.text === 'CUSTOM' ? 'CATEGORY' : 'CUSTOM';
   }
  goToPage(pageName:string){
     this.router.navigate([`${pageName}`]);
