@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { User } from '../main-age-selector/user';
+import { User } from '../global/user';
 
 @Component({
   selector: 'app-header-on-page',
@@ -30,7 +30,6 @@ export class HeaderOnPageComponent implements OnInit {
     else {
       this.usernameToggle = !this.usernameToggle;
       var existingUsernames = JSON.parse(localStorage.getItem("usernames"));
-      console.log(existingUsernames);
       if (existingUsernames != null){
         for (var user of existingUsernames){
           if (user.name == usernameInput){
@@ -40,7 +39,7 @@ export class HeaderOnPageComponent implements OnInit {
       } else {
         existingUsernames = []
       }
-      existingUsernames.push(new User(usernameInput, this.ageRange));
+      existingUsernames.push(new User(usernameInput, this.ageRange, this.ageRange));
       localStorage.setItem("usernames", JSON.stringify(existingUsernames));
       this.data.changeUser(usernameInput);
       console.log(usernameInput);
