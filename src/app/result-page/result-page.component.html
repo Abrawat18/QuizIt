@@ -1,43 +1,28 @@
 <h2>Your Results</h2>
 <div *ngIf="ageRange == 1; else adultTeen" class="list-group">
-  <mat-grid-list cols="12">
-    <mat-grid-tile [colspan]="5" [rowspan]="4">
       <img
         src="../../assets/images/minions2.png"
         style="height: 100%; width: 80%; object-fit: contain"
       />
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="2" [rowspan]="4">
       <h1><font face="Comic Sans MS" color="red">{{grade}}</font></h1>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="5" [rowspan]="4">
       <img
         src="../../assets/images/minion.png"
         style="height: 100%; width: 100%; object-fit: contain"
       />
-    </mat-grid-tile>
-  </mat-grid-list>
-  <mat-grid-list cols="1" rowHeight="9:1">
     <button class="btn" (click)="buttonNewQuizTapped()">
       New Quiz
     </button>
     <button class="btn" (click)="buttonChangeCategoryTapped()">
       Change Category
     </button>
-  </mat-grid-list>
 </div>
 <ng-template #adultTeen>
   <div>
-    <mat-grid-list cols="1" rowHeight="6:1">
-      <mat-grid-tile>
         <h4>
           You scored
           <span class="badge badge-pill badge-info">{{ score }} </span> out of
           10!
         </h4>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="1" rowHeight="6:1">
       <div>
         <button class="btn" (click)="buttonNewQuizTapped()">New Quiz</button>
       </div>
@@ -51,7 +36,6 @@
           Review Answers
         </button>
       </div>
-    </mat-grid-list>
   </div>
   <div *ngIf="areAnswersToBeShown == true" class="container">
     <h1>Answers:</h1>
