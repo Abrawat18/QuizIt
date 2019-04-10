@@ -26,7 +26,6 @@ export class HomePageComponent implements OnInit {
   userScore = 0;
   currentCategoryID = 0;
 
-
   constructor(private data: DataService, private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit() {
@@ -57,21 +56,26 @@ export class HomePageComponent implements OnInit {
     const my_params = {params: new HttpParams().set('amount', SharedData.NUMBER_OF_QUESTIONS).set('category', String(category_id))
                       .set('difficulty', this.getDifficultyFromAge()).set('type', SharedData.TYPE_OF_QUESTIONS)};
     this.httpClient.get<any[]>(SharedData.API_URL, my_params).subscribe(res => {
+      this.json_quiz = []
       this.json_quiz = res;
       this.isQuizPageToBeLoaded = true;
     }, err => {});
   }
+
   public loadCustomQuiz(fileName) {
     this.json_quiz = this.loadLanguage(fileName);
     this.isQuizPageToBeLoaded = true;
   }
+
   public loadLanguage(lang: string) {
     // @ts-ignore
     return require('../../assets/data/' + lang + '.json');
   }
+
   view() {
     this.text = this.text === 'CUSTOM' ? 'CATEGORY' : 'CUSTOM';
   }
+
  goToPage(pageName:string){
     this.router.navigate([`${pageName}`]);
   }
@@ -110,7 +114,6 @@ export class HomePageComponent implements OnInit {
     this.isQuizPageToBeLoaded =false;
     this.isResultPageToBeShown=false;
     if(number == 2){
-      this.isQuizPageToBeLoaded =true;
       this.getQuiz(this.currentCategoryID)
     }
   }
