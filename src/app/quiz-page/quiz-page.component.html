@@ -8,20 +8,22 @@
 
 <ng-template #quizView>
   <mat-grid-list cols="12">
-    <mat-grid-tile [colspan]="12" [rowspan]="1">
-      <h3>
+    <mat-grid-tile [colspan]="3"></mat-grid-tile>
+    <mat-grid-tile class="badges-display" [colspan]="6" style="margin:15px">
+      <h4>
         <span class="badge badge-pill badge-info"
           >Category: {{ category }}
         </span>
-      </h3>
-      <h3>
+      </h4>
+      <h4>
         <span class="badge badge-pill badge-info">Score: {{ userScore }}</span>
-      </h3>
+      </h4>
       <!---<mat-card class="">Category: {{ category }}</mat-card>
             <div *ngIf="ageRange == 3">
               <mat-card class="">Score: {{ userScore }}</mat-card>
             </div>-->
     </mat-grid-tile>
+    <mat-grid-tile [colspan]="3"></mat-grid-tile>
   </mat-grid-list>
   <mat-card class="quiz-card">
     <!--<div id="question-area">-->
