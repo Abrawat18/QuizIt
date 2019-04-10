@@ -2,19 +2,13 @@
 <div *ngIf="ageRange == 1; else adultTeen" class="list-group">
   <mat-grid-list cols="12">
     <mat-grid-tile [colspan]="5" [rowspan]="4">
-      <img
-        src="../../assets/images/minions2.png"
-        style="height: 100%; width: 80%; object-fit: contain"
-      />
+      <img src="/assets/images/star.gif" />
     </mat-grid-tile>
     <mat-grid-tile [colspan]="2" [rowspan]="4">
       <h1><font face="Comic Sans MS" color="red">{{grade}}</font></h1>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="5" [rowspan]="4">
-      <img
-        src="../../assets/images/minion.png"
-        style="height: 100%; width: 100%; object-fit: contain"
-      />
+      <img src="/assets/images/star.gif" />
     </mat-grid-tile>
   </mat-grid-list>
   <mat-grid-list cols="1" rowHeight="9:1">
