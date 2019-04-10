@@ -25,11 +25,15 @@ export class HomePageComponent implements OnInit {
   isResultPageToBeShown = false;
   userScore = 0;
   currentCategoryID = 0;
+  currentUser: string;
+
 
   constructor(private data: DataService, private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.ageRange = message);
+    this.data.currentUser.subscribe(message => (this.currentUser = message));
+
     this.allCustom = CustomQuizzes.CustomQuizzes;
     this.all_categories = categories.categories;
     this.all_categories.sort(function(obj1, obj2) {
@@ -38,7 +42,23 @@ export class HomePageComponent implements OnInit {
   }
   
   getDifficultyFromAge(){
-    switch(this.ageRange){
+    var ageToUse = this.ageRange
+    console.log("age to use"+ageToUse);
+    var existingUsernames = JSON.parse(localStorage.getItem("usernames"))
+    if (existingUsernames != null){
+      for (var user of existingUsernames){
+        if (user.name == this.currentUser){
+          console.log("user promoted age" +user.promotedAge )
+           if(user.promotedAge!=user.age){
+            console.log("age to use"+ageToUse);
+              ageToUse = user.promotedAge
+           }
+        }
+      }
+    }
+    console.log("age range"+this.ageRange)
+    console.log("age to use"+ageToUse);
+    switch(ageToUse){
       case 1:{
         return "easy";
       }

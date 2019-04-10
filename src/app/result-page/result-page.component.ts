@@ -26,6 +26,15 @@ export class ResultPageComponent implements OnInit {
     if(this.ageRange == 1){
       this.areAnswersToBeShown = true
       this.mappingScoreToGradeForChild();
+    }else if(this.ageRange == 2){
+      this.checkIfUserScoreIsToBeUpdate();
+    }
+  }
+
+  checkIfUserScoreIsToBeUpdate(){
+    let percentageScore = this.score/10;
+    if(percentageScore >= 0.8){
+      this.askUserToUpgradeLevel();
     }
   }
 
