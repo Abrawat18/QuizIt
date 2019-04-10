@@ -54,11 +54,11 @@
             <ul class="navbar-nav col-lg-12">
               <li class="nav-item dropdown col-lg-6">
                 <a class="navbar-button nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                  ALL CATEGORIES
+                  CHOOSE FROM ALL CATEGORIES
                     </a>
-                      <ul class="dropdown-menu">
-                        <li style="text-align: center" *ngFor="let cat of all_categories">
-                            <a role="button" class="dropdown-item" (click)="getQuiz(cat.id)">{{cat.name}}</a>
+                      <ul class="dropdown-menu" style="width: 80%">
+                        <li style="text-align: center; width: 95%" class="btn-main-category" *ngFor="let cat of all_categories">
+                            <a role="button" (click)="getQuiz(cat.id)">{{cat.name}}</a>
                         </li>
                       </ul>
                 </li>
