@@ -17,7 +17,7 @@ export class ResultPageComponent implements OnInit {
   grade = "";
   areAnswersToBeShown = false;
   isShowChartTrue = false;
-
+  scoreRange = "Show score range"
   constructor(private data: DataService) {}
 
   ngOnInit() {
@@ -76,6 +76,12 @@ export class ResultPageComponent implements OnInit {
 
   buttonShowScoreChartTapped(){
     this.isShowChartTrue = !this.isShowChartTrue
+    if(this.isShowChartTrue){
+      this.scoreRange = "Hide score range"
+    }
+    else{
+      this.scoreRange = "Show score range"
+    }
   }
 
   toUpgradeLevel(){

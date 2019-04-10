@@ -11,7 +11,7 @@
         style="height: 100%; width: 100%; object-fit: contain"
       />
     </div>
-    <button role="link" (click)="buttonShowScoreChartTapped()" >Show Score Range</button>
+    <a (click)="buttonShowScoreChartTapped()" href="#">{{scoreRange}}</a>
     <div *ngIf="isShowChartTrue == true" id ="ScoreChart">
       A+ = 80% or Above
       A  = 50% - 80%
