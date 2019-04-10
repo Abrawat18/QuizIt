@@ -38,6 +38,7 @@
 }
 
 .btn-age-category {
+    white-space: normal;
     background-color: #3399ff;
     border: 2px solid #3399ff;
     color: white;
@@ -45,6 +46,7 @@
     font-size: 24px;
     padding: 2%;
     margin: 10px;
+    border-radius: 25%;
 }
 
 .btn-age-category:hover {
