@@ -1,13 +1,24 @@
-.bottomView{
-    position:fixed;
-    bottom:0;
+.bottomView {
+  position: fixed;
+  bottom: 0;
 }
-.btn-submit-user-input {
-  background-color: white;
-  border: 2px solid #004d99;
-  margin: 20px;
-  color: #004d99;
-  border-radius: 50%;
-  font-size: 24px;
-  padding: 10%;
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: rgb(180, 214, 241);
+  padding: 10px;
+}
+.badge {
+  margin: 10px;
+}
+
+.btn-submit {
+  background-color: #3399ff;
+  margin: 3px;
+  color: white;
+}
+
+.btn-hint {
+  margin: 30px;
 }

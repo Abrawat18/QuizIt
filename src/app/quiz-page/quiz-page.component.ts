@@ -92,7 +92,9 @@ export class QuizPageComponent implements OnInit {
   }
   
   buttonNextTapped(){
-    this.askConfirmation();
+    if(this.askConfirmation()==0){
+      return
+    }
     this.handleOptionRendering();
     this.validateAnswer();
     console.log(this.currentQuestionIndex,this.arrQuestions.length)
@@ -112,13 +114,13 @@ export class QuizPageComponent implements OnInit {
   askConfirmation(){
     if(!this.isOptionEnabled){
       if(this.inputText === ""){
-        this.alertToProcced()
+        return this.alertToProcced()
       }else{
         this.userAnswer = this.inputText;
       }
     }else{
       if(this.ansGivenForQuestion == false){
-        this.alertToProcced();
+        return this.alertToProcced();
       }
     }
   }
@@ -126,7 +128,7 @@ export class QuizPageComponent implements OnInit {
     if (confirm("Are you sure you want to proceed without answering the quiz?")) {
         
     } else {
-      return;
+      return 0;
     }
   }
 

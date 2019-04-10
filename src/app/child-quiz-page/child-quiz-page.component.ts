@@ -68,15 +68,29 @@ export class ChildQuizPageComponent implements OnInit {
       //upgrade level
     }
   }
-  buttonAnswerTapped(ans,question,index){
-      let prevAns = this.arrUserAnswer[index];
-      console.log(prevAns)
-      if(prevAns.toUpperCase() === ans.toUpperCase()){
-        //do nothing just old answer retapped
-      } else{
-        this.arrUserAnswer[index]= ans;
-        this.handleScore(ans,question,prevAns);
-      }
+  buttonAnswerTapped(ans, question, index) {
+    let prevAns = this.arrUserAnswer[index];
+    //console.log(prevAns);
+
+    var currentButtonId = "button_" + ans;
+    //document.getElementById(currentButtonId).style.color = "red";
+    document.getElementById(currentButtonId).style.backgroundColor =
+      "lightskyblue";
+
+    if (prevAns) {
+      var previousButtonId = "button_" + prevAns;
+      console.log(previousButtonId);
+      //document.getElementById(previousButtonId).style.color = "black";
+
+      document.getElementById(previousButtonId).style.backgroundColor = null;
+    }
+
+    if (prevAns.toUpperCase() === ans.toUpperCase()) {
+      //do nothing just old answer retapped
+    } else {
+      this.arrUserAnswer[index] = ans;
+      this.handleScore(ans, question, prevAns);
+    }
   }
 
   buttonSubmitTapped(){

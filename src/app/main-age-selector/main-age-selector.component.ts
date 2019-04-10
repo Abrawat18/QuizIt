@@ -33,19 +33,23 @@ export class MainAgeSelectorComponent implements OnInit {
   }
   onEnterUsername(value: string){
     var existingUsernames = JSON.parse(localStorage.getItem("usernames"));
+    let usernameFound = false
     if(existingUsernames != null){
       for (var user of existingUsernames){
         if (user.name == value && user.age == 1){
+          usernameFound = true
           this.child(user.name);
         } else if (user.name == value && user.age == 2){
+          usernameFound = true
           this.teen(user.name);
         } else if (user.name == value && user.age == 3){
+          usernameFound = true
           this. adult(user.name);
         }
-        else {
-          confirm("Username does not exist, kindly select your age category to continue..!!")
-          return;
-        }
+      }
+      if(!usernameFound){
+        confirm("Username does not exist, kindly select your age category to continue..!!")
+        return;
       }
     } else {
       confirm("Username does not exist, kindly select your age category to continue..!!")

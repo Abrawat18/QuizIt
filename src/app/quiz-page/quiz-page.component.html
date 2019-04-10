@@ -1,57 +1,79 @@
 <div *ngIf="isQuizContentEmpty == true; else quizView" class="container">
   <h5>No Questions in this category!</h5>
   <h5>Please choose a new category!</h5>
-  <button class="btn-submit-user-input" (click)="changeCategory()">Choose new category</button>
+  <button class="btn-submit-user-input" (click)="changeCategory()">
+    Choose new category
+  </button>
 </div>
+
 <ng-template #quizView>
-<mat-card>
-<mat-grid-list cols="5" >
-    <mat-grid-list cols="12" style="background-color:lightgreen">
-        <mat-grid-tile
-            [colspan]="12"
-            [rowspan]="1"
-            [style.background]="'lightpink'">
-          <mat-card class="">Category: {{category}}</mat-card>
-          <div *ngIf="ageRange == 3" >
-              <mat-card class="">Score: {{userScore}}</mat-card>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
-      <mat-grid-list cols="12" style="background-color:lightblue">
+    <mat-card class="quiz-card ">
+      <mat-grid-list cols="5">
+        <mat-grid-list cols="12">
+          <mat-grid-tile [colspan]="12" [rowspan]="1">
+            <h3>
+              <span class="badge badge-pill badge-info"
+                >Category: {{ category }}
+              </span>
+            </h3>
+            <h3>
+              <span class="badge badge-pill badge-info"
+                >Score: {{ userScore }}</span
+              >
+            </h3>
+            <!---<mat-card class="">Category: {{ category }}</mat-card>
+            <div *ngIf="ageRange == 3">
+              <mat-card class="">Score: {{ userScore }}</mat-card>
+            </div>-->
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="12">
           <mat-grid-tile
-              [colspan]="12"
-              [rowspan]="3"
-              style.background="lightgreen">
-            {{currentQuestion}}
+            [colspan]="12"
+            [rowspan]="3"
+            style.background="lightgreen"
+          >
+            <h4>{{ currentQuestion }}</h4>
           </mat-grid-tile>
         </mat-grid-list>
         <div *ngIf="isOptionEnabled == false" class="container">
-            <mat-form-field>
-                <textarea matInput placeholder="Type Answer" [(ngModel)]="inputText"></textarea>
-            </mat-form-field>
-            <button mat-button (click)="buttonHintTapped()">Hint</button>
+          <mat-form-field>
+            <textarea
+              matInput
+              placeholder="Type Answer"
+              [(ngModel)]="inputText"
+            ></textarea>
+          </mat-form-field>
+          <button
+            mat-button
+            class="btn btn-dark btn-hint"
+            (click)="buttonHintTapped()"
+          >
+            Hint
+          </button>
         </div>
         <div *ngIf="isOptionEnabled == true" class="container">
-            <mat-grid-list cols="12" rowHeight="12:3" style="background-color:lightpink">
-                <mat-grid-tile
-                *ngFor="let ans of arrCurrentAnswer"
-                [colspan]="6"
-                [rowspan]="3"
-                >
-              <button mat-button (click)="buttonAnswerTapped(ans)">{{ans}}</button>
+          <mat-grid-list cols="12" rowHeight="12:3">
+            <mat-grid-tile
+              *ngFor="let ans of arrCurrentAnswer"
+              [colspan]="6"
+              [rowspan]="3"
+            >
+              <button mat-button (click)="buttonAnswerTapped(ans)">
+                {{ ans }}
+              </button>
             </mat-grid-tile>
-            </mat-grid-list>
+          </mat-grid-list>
         </div>
-          
-  </mat-grid-list>
-</mat-card>
-<mat-grid-list cols="12">
-    <mat-grid-tile
-        [colspan]="12"
-        [rowspan]="1"
-        style.background="lightgreen">
-        <button mat-button (click)="buttonNextTapped()">Next</button>
-        <button mat-button (click)="buttonQuitTapped()">Quit</button>
-    </mat-grid-tile>
-  </mat-grid-list>
-</ng-template>
+      </mat-grid-list>
+      <mat-card-actions>
+        <button mat-button class="btn-submit" (click)="buttonNextTapped()">
+          Next
+        </button>
+        <button mat-button class="btn-submit" (click)="buttonQuitTapped()">
+          Quit
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-template>
+  

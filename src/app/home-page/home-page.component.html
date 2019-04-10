@@ -88,7 +88,7 @@
   <div *ngIf="isQuizPageToBeLoaded == true && ageRange == 1" class="list-group">
     <app-child-quiz-page [arrQuizContent]="json_quiz" (quizScore)="onQuizComplete($event)" ></app-child-quiz-page>
   </div>  
-  <div *ngIf="isQuizPageToBeLoaded == true && ageRange != 1 " class="list-group">
+  <div *ngIf="isQuizPageToBeLoaded == true && ageRange != 1 ">
       <app-quiz-page [arrQuizContent]="json_quiz" (quizScore)="onQuizComplete($event)"></app-quiz-page>
     </div>  
    <div *ngIf="isResultPageToBeShown == true">
