@@ -25,6 +25,17 @@
       Change Category
     </button>
   </mat-grid-list>
+    <h1>Answers:</h1>
+    <mat-list role="list">
+      <mat-list-item *ngFor="let question of arrChildQuiz.results">
+        <h1 mat-line>
+          <b>{{ question.question }}</b>
+        </h1>
+        <br/>
+        <p mat-line>{{ question.correct_answer }}</p>
+        <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+      </mat-list-item>
+    </mat-list>
 </div>
 <ng-template #adultTeen>
   <div>
@@ -53,7 +64,7 @@
       </div>
     </mat-grid-list>
   </div>
-  <div *ngIf="areAnswersToBeShown == true" class="container">
+  <div *ngIf= "areAnswersToBeShown == true" class="container">
     <h1>Answers:</h1>
     <mat-list role="list">
       <mat-list-item *ngFor="let question of arrChildQuiz.results">

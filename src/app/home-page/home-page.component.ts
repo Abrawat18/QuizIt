@@ -94,7 +94,10 @@ export class HomePageComponent implements OnInit {
     this.isResultPageToBeShown=false;
   }
   getRandomQuiz() {
-    var category_id = Math.floor(Math.random() * (32 - 9) + 9);
+    let arrCategory = [9,10,11,12,14,15]
+    var index = Math.floor(Math.random() * (arrCategory.length));
+    let category_id = arrCategory[index]
+    console.log("category id"+category_id)
     const my_params = {
       params: new HttpParams()
         .set("amount", SharedData.NUMBER_OF_QUESTIONS)
