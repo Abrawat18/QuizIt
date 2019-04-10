@@ -11,6 +11,7 @@
         style="height: 100%; width: 100%; object-fit: contain"
       />
     </div>
+    <a href="#ScoreChart" (click)="buttonShowScoreChartTapped()">View Score Range</a>
     <div class="row btn-group">
     <button class="btn-result-page col-sm-4" (click)="buttonNewQuizTapped()">
       New Quiz
@@ -29,13 +30,19 @@
       </div>
     </div>
 </div>
+  <div *ngIf="isShowChartTrue == true" id ="ScoreChart">
+    A+ = 80% or Above
+    A  = 50% - 80%
+    B+ = 25% - 50%
+    B  = 25% or Below
+  </div>
 </div>
 <ng-template #adultTeen>
   <div>
         <h2>
           You scored
           <span class="badge badge-pill badge-info">{{ score }} </span> out of
-          10!
+          {{arrChildQuiz.length}}
         </h2>
       <div class="row btn-group">
           <button class="btn-result-page col-sm-4" (click)="buttonNewQuizTapped()">New Quiz</button>

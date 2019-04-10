@@ -66,7 +66,9 @@ export class QuizPageComponent implements OnInit {
       this.category = this.arrQuestions[0].category;
       let quizObject = this.arrQuestions[this.currentQuestionIndex];
       this.currentQuestion = unescape(quizObject.question);
-      quizObject.incorrect_answers.push(quizObject.correct_answer);
+      if(quizObject.incorrect_answers.length<4){
+        quizObject.incorrect_answers.push(quizObject.correct_answer);
+      }
       this.arrCurrentAnswer = quizObject.incorrect_answers;
       this.arrCurrentAnswer.sort();
       this.correctAnswer = quizObject.correct_answer;

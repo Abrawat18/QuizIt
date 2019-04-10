@@ -16,6 +16,7 @@ export class ResultPageComponent implements OnInit {
   currentUser: string;
   grade = "";
   areAnswersToBeShown = false;
+  isShowChartTrue = false;
 
   constructor(private data: DataService) {}
 
@@ -40,7 +41,7 @@ export class ResultPageComponent implements OnInit {
 
   mappingScoreToGradeForChild(){
     console.log(this.score)
-    let percentageScore = this.score/10;
+    let percentageScore = this.score/this.arrChildQuiz.length;
     if(percentageScore >= 0.8){
       this.grade = "A+"
       this.askUserToUpgradeLevel();
@@ -71,6 +72,10 @@ export class ResultPageComponent implements OnInit {
 
   buttonReviewAnswersTapped() {
       this.areAnswersToBeShown = true
+  }
+
+  buttonShowScoreChartTapped(){
+    this.isShowChartTrue = true
   }
 
   toUpgradeLevel(){
