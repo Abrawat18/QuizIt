@@ -18,12 +18,17 @@ export class ResultPageComponent implements OnInit {
   areAnswersToBeShown = false;
   isShowChartTrue = false;
   scoreRange = "Show score range"
+  questionCount = "";
   constructor(private data: DataService) {}
+
 
   ngOnInit() {
     this.data.currentMessage.subscribe(message => (this.ageRange = message));
     this.data.currentUser.subscribe(message => (this.currentUser = message));
     this.score = this.userPerformance;
+
+    let count = this.arrChildQuiz.results.length
+    this.questionCount = count.toString()
     if(this.ageRange == 1){
       this.areAnswersToBeShown = true
       this.mappingScoreToGradeForChild();
@@ -41,7 +46,7 @@ export class ResultPageComponent implements OnInit {
 
   mappingScoreToGradeForChild(){
     console.log(this.score)
-    let percentageScore = this.score/this.arrChildQuiz.length;
+    let percentageScore = this.score/this.arrChildQuiz.results.length;
     if(percentageScore >= 0.8){
       this.grade = "A+"
       this.askUserToUpgradeLevel();
