@@ -31,12 +31,13 @@ export class ResultPageComponent implements OnInit {
 
   mappingScoreToGradeForChild(){
     console.log(this.score)
-    if(this.score >= 0.8){
+    let percentageScore = this.score/10;
+    if(percentageScore >= 0.8){
       this.grade = "A+"
       this.askUserToUpgradeLevel();
-    }else if(this.score > 0.50 && this.score < 0.80){
+    }else if(percentageScore > 0.50 && percentageScore < 0.80){
       this.grade = "A"
-    }else if(this.score > 0.25 && this.score <= 0.5){
+    }else if(percentageScore > 0.25 && percentageScore <= 0.5){
       this.grade = "B+"
     }else{
       this.grade = "B"
@@ -53,7 +54,6 @@ export class ResultPageComponent implements OnInit {
 
   buttonNewQuizTapped() {
     this.resultActions.emit(2)
-
   }
 
   buttonChangeCategoryTapped() {

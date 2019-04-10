@@ -130,6 +130,9 @@ export class QuizPageComponent implements OnInit {
     }
   }
 
+  changeCategory() {
+    this.quizScore.emit(-1)
+  }
 
   buttonHintTapped(){
     this.isOptionEnabled = true;
