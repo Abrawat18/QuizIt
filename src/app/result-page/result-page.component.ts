@@ -75,7 +75,7 @@ export class ResultPageComponent implements OnInit {
   }
 
   buttonShowScoreChartTapped(){
-    this.isShowChartTrue = true
+    this.isShowChartTrue = !this.isShowChartTrue
   }
 
   toUpgradeLevel(){
