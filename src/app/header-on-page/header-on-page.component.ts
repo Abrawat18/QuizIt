@@ -28,6 +28,10 @@ export class HeaderOnPageComponent implements OnInit {
       this.createUserNameBtn = "Add user";
     }
     else {
+      if(usernameInput.replace(/\s/g, "") == ""){
+        confirm("Username cannot be blank")
+        return;
+      }
       this.usernameToggle = !this.usernameToggle;
       var existingUsernames = JSON.parse(localStorage.getItem("usernames"));
       if (existingUsernames != null){
