@@ -30,15 +30,16 @@ export class ResultPageComponent implements OnInit {
   }
 
   mappingScoreToGradeForChild(){
-    if(this.score<= 0.25){
-      this.grade = "B"
-    }else if(this.score > 0.25 && this.score <= 0.5){
-      this.grade = "B+"
-    }else if(this.score > 0.50 && this.score < 0.80){
-      this.grade = "A"
-    }else{
+    console.log(this.score)
+    if(this.score >= 0.8){
       this.grade = "A+"
       this.askUserToUpgradeLevel();
+    }else if(this.score > 0.50 && this.score < 0.80){
+      this.grade = "A"
+    }else if(this.score > 0.25 && this.score <= 0.5){
+      this.grade = "B+"
+    }else{
+      this.grade = "B"
     }
   }
   

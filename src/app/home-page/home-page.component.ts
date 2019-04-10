@@ -107,9 +107,10 @@ export class HomePageComponent implements OnInit {
     );
   }
   changeCategoryAfterShowingResult(number: number){
-    this.isQuizPageToBeLoaded = false;
+    this.isQuizPageToBeLoaded =false;
     this.isResultPageToBeShown=false;
     if(number == 2){
+      this.isQuizPageToBeLoaded =true;
       this.getQuiz(this.currentCategoryID)
     }
   }

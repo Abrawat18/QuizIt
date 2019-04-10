@@ -138,7 +138,6 @@ export class QuizPageComponent implements OnInit {
   buttonQuitTapped(){
     if (confirm("Are you sure you want quit the quiz?")) {
       this.quizScore.emit(-1)
-
     } else {
       return;
     }
