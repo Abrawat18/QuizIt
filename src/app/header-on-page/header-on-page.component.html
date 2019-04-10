@@ -1,21 +1,21 @@
 <div class="container">
-  <div class="row">
+  <div class="row header-row">
     
-    <div class="col-md-6">
+    <div class="col-6">
       <h1>{{ logo }}</h1>
     </div>  
-      
-    <div class="col-md-2 input-username">
-      <input class="enter-user-input" #newUsername [hidden]="!usernameToggle" placeholder="Username"/>
-    </div>
-      
-    <div *ngIf="ageRange!=0" class="col-md-2 username-controls">
-      <button class="btn-username-controls" *ngIf="username=='User'" (click)="addUserOnClick(newUsername.value)">{{createUserNameBtn}}</button>
-      <h5 *ngIf="username!='User'">Hi {{ username }}!</h5>
-    </div>
-      
-    <div *ngIf="ageRange!=0 && username=='User'" class="col-md-2 change-age">
-      <button class="btn-change-age" (click)="goToAgeSelect()">Change Age</button>
+    <div class="col-6">
+      <div class="row">
+        <div *ngIf="ageRange!=0" class="col-md-7 div-input">
+          <input  class="input-username" #newUsername [hidden]="!usernameToggle" placeholder="Username"/>
+          <button *ngIf="username=='User'" (click)="addUserOnClick(newUsername.value)">{{createUserNameBtn}}</button>
+          <h5 *ngIf="username!='User'">Hi {{ username }}!</h5>
+        </div>
+        <div *ngIf="ageRange!=0 && username=='User'" class="col-md-3 div-input">
+          <button (click)="goToAgeSelect()">Change Age</button>
+        </div>
+      </div>
+
     </div>
   
   </div>
