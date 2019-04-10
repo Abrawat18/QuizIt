@@ -10,7 +10,7 @@
           <a class="navbar-button nav-link" href="#">QUIZ-IT</a>
         </li>
         <li class="nav-item col-lg-4">
-          <a class="navbar-button nav-link" href="#" (click)="getRandomQuiz()">RANDOM</a>
+          <a class="navbar-button nav-link" href="#" (click)="getRandomQuiz()">PLAY RANDOM QUIZ</a>
         </li>
         <li class="nav-item col-lg-4">
           <a class="navbar-button nav-link" href="#" (click)="view()">{{text}}</a>
@@ -18,19 +18,23 @@
       </ul>
   </nav>
     </div>
-    <div *ngIf="text != 'CATEGORY'" class="row itemsBlock">
+    <div *ngIf="text != 'CHOOSE A CATEGORY'"><h5>CHOOSE A CATEGORY</h5>
+    <div class="row itemsBlock">
       <div *ngFor="let cat of all_categories" class="col-md-4 col-lg-3 image-icon">
             <button (click)="getQuiz(cat.id)" class="btn-internal-transparent"><img class="category-tile" src = {{cat.img}}></button>
           <h6>{{cat.name}}</h6>
         </div>
     </div>
-    <div *ngIf="text === 'CATEGORY'" class="list-group" >
+  </div>
+  <div *ngIf="text === 'CHOOSE A CATEGORY'"><h5>CHOOSE A CUSTOM QUIZ</h5>
+    <div class="list-group" >
       <div class="row extra-options" *ngFor="let custom of allCustom">
         <button class="btn-main-category" (click)="loadCustomQuiz(custom.FileName)">
           {{custom.name}}
         </button>
       </div>
     </div>
+  </div>
 </div>
 
 
@@ -38,6 +42,7 @@
   <div class="row">
     <button class="btn-random-child" (click)="getRandomQuiz()">PLAY RANDOM QUIZ</button>
   </div>
+  <div><h5>CHOOSE A CATEGORY</h5></div>
   <div class="row itemsBlock">
     <div *ngFor="let cat of all_categories" class="col-md-4 col-lg-3 image-icon">
       <button (click)="getQuiz(cat.id)" class="btn-internal-transparent"><img class="category-tile" src = {{cat.img}}></button>
@@ -46,7 +51,6 @@
   </div>
   </div>
   
-
   <div *ngIf="ageRange == 3 && isQuizPageToBeLoaded == false && isResultPageToBeShown == false" class="container">
         <div class="row">
           <nav class="navbar navbar-expand-sm col-lg-12">
@@ -63,7 +67,7 @@
                       </ul>
                 </li>
                 <li class="nav-item col-lg-6">
-                  <a class="navbar-button nav-link" href="#" (click)="getRandomQuiz()">TAKE A RANDOM QUIZ</a>
+                  <a class="navbar-button nav-link" href="#" (click)="getRandomQuiz()">PLAY RANDOM QUIZ</a>
                 </li>
               </ul>    
           </nav>

@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
 
   ageRange: number;
-  text = 'CUSTOM';
+  text = 'PLAY CUSTOM QUIZ';
   allCustom;
   customQuestion: any[];
   all_categories: any[];
@@ -88,7 +88,7 @@ export class HomePageComponent implements OnInit {
   }
 
   view() {
-    this.text = this.text === 'CUSTOM' ? 'CATEGORY' : 'CUSTOM';
+    this.text = this.text === 'PLAY CUSTOM QUIZ' ? 'CHOOSE A CATEGORY' : 'PLAY CUSTOM QUIZ';
   }
 
  goToPage(pageName:string){
