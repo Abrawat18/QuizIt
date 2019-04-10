@@ -1,6 +1,21 @@
+h1 {
+  border-radius: 50%;
+  padding: 5%;
+  align-self: center;
+}
+
 h2 {
   color: #004d99;
   margin: 50px;
+}
+
+h4 {
+  text-align: left;
+  margin: 20px;
+}
+
+h6 {
+  color: darkblue;
 }
 
 .btn-group {
@@ -31,6 +46,22 @@ h2 {
   margin-left: 15px;
   margin-right: 15px;
   display: inline-flex;
+}
+
+.itemsBlock {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.review-answer {
+  display: contents;
+}
+
+.line-break {
+  background-color: lightgrey;
+  width: 100%;
+  height: 1px;
+  margin: 2px;
 }
 
 #result {
