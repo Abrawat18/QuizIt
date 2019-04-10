@@ -2,12 +2,12 @@
 <div *ngIf="ageRange == 1; else adultTeen" class="container list-group">
   <div class="row">
       <img class="col-md-4"
-        src="../../assets/images/minions2.png"
+      src="../assets/images/star.gif"
         style="height: 100%; width: 80%; object-fit: contain"
       />
       <h1 class="col-md-4"><font face="Comic Sans MS" color="red">{{grade}}</font></h1>
       <img class="col-md-4"
-        src="../../assets/images/minion.png"
+        src="../../assets/images/star.gif"
         style="height: 100%; width: 100%; object-fit: contain"
       />
     </div>
@@ -18,7 +18,18 @@
     <button class="btn-result-page col-sm-4" (click)="buttonChangeCategoryTapped()">
       Change Category
     </button>
-  </div>
+  </mat-grid-list>
+    <h1>Answers:</h1>
+    <mat-list role="list">
+      <mat-list-item *ngFor="let question of arrChildQuiz.results">
+        <h1 mat-line>
+          <b>{{ question.question }}</b>
+        </h1>
+        <br/>
+        <p mat-line>{{ question.correct_answer }}</p>
+        <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+      </mat-list-item>
+    </mat-list>
 </div>
 <ng-template #adultTeen>
   <div>
@@ -33,7 +44,7 @@
           <button class="btn-result-page col-sm-4" (click)="buttonReviewAnswersTapped()">Review Answers</button>
       </div>
   </div>
-  <div *ngIf="areAnswersToBeShown == true" class="container">
+  <div *ngIf= "areAnswersToBeShown == true" class="container">
     <h1>Answers:</h1>
     <mat-list role="list">
       <mat-list-item *ngFor="let question of arrChildQuiz.results">

@@ -47,7 +47,7 @@
   </div>
   
 
-<div *ngIf="ageRange == 3 && isQuizPageToBeLoaded == false && isResultPageToBeShown == false" class="container">
+  <div *ngIf="ageRange == 3 && isQuizPageToBeLoaded == false && isResultPageToBeShown == false" class="container">
         <div class="row">
           <nav class="navbar navbar-expand-sm col-lg-12">
             <!-- Links -->
@@ -85,7 +85,6 @@
           </div>
     </div>
   </div>
-
   <div *ngIf="isQuizPageToBeLoaded == true && ageRange == 1" class="list-group">
     <app-child-quiz-page [arrQuizContent]="json_quiz" (quizScore)="onQuizComplete($event)" ></app-child-quiz-page>
   </div>  
