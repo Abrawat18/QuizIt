@@ -43,21 +43,16 @@ export class HomePageComponent implements OnInit {
   
   getDifficultyFromAge(){
     var ageToUse = this.ageRange
-    console.log("age to use"+ageToUse);
     var existingUsernames = JSON.parse(localStorage.getItem("usernames"))
     if (existingUsernames != null){
       for (var user of existingUsernames){
         if (user.name == this.currentUser){
-          console.log("user promoted age" +user.promotedAge )
-           if(user.promotedAge!=user.age){
-            console.log("age to use"+ageToUse);
+              console.log("promoted age"+user.promotedAge)
               ageToUse = user.promotedAge
            }
         }
-      }
     }
-    console.log("age range"+this.ageRange)
-    console.log("age to use"+ageToUse);
+    console.log("age to use age"+ageToUse)
     switch(ageToUse){
       case 1:{
         return "easy";
