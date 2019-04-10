@@ -3,12 +3,6 @@
   bottom: 0;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: rgb(180, 214, 241);
-  padding: 10px;
-}
 .badge {
   margin: 10px;
 }
@@ -30,4 +24,32 @@
 
 .btn-hint {
   margin: 30px;
+}
+.btn-answer {
+  background-color: white;
+  border: 2px solid #3399ff;
+  color: #3399ff;
+  width: 90%;
+  max-height: 100%;
+  margin: 0 auto;
+  float: left;
+  overflow-wrap: break-word;
+}
+.btn-answer:focus {
+  background-color: lightskyblue;
+}
+
+#button-area {
+  margin-top: 1%;
+}
+.example-card {
+  display: flex;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /*background-color: rgb(180, 214, 241);*/
+  padding: 10px;
+  display: flex;
+  /*justify-content: space-around;*/
 }
