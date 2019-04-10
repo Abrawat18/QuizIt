@@ -43,17 +43,14 @@
           <button class="btn-result-page col-sm-4" (click)="buttonReviewAnswersTapped()">Review Answers</button>
       </div>
   </div>
-  <div *ngIf= "areAnswersToBeShown == true" class="container">
-    <h1>Answers:</h1>
-    <mat-list role="list">
-      <mat-list-item *ngFor="let question of arrChildQuiz.results">
-        <h1 mat-line>
-          <b>{{ question.question }}</b>
-        </h1>
-        <br/>
-        <p mat-line>{{ question.correct_answer }}</p>
-        <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
-      </mat-list-item>
-    </mat-list>
-  </div>
+  <div class="col-sm-10" *ngIf= "areAnswersToBeShown == true">
+      <h4>Answers:</h4>
+      <div class="row itemsBlock">
+        <div class="review-answer" *ngFor="let question of arrChildQuiz.results">
+          <div style="text-align:left"><h6>{{ question.question }}</h6>
+          <p>{{ question.correct_answer }}</p></div>
+          <div class="row line-break"></div>
+        </div>
+      </div>
+    </div>
 </ng-template>
