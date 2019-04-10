@@ -29,7 +29,7 @@ export class HeaderOnPageComponent implements OnInit {
     }
     else {
       if(usernameInput.replace(/\s/g, "") == ""){
-        confirm("Username cannot be blank")
+        confirm("Username cannot be blank.")
         return;
       }
       this.usernameToggle = !this.usernameToggle;

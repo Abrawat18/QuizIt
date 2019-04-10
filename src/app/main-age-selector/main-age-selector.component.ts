@@ -43,10 +43,13 @@ export class MainAgeSelectorComponent implements OnInit {
           this. adult(user.name);
         }
         else {
-          confirm("Username does not exist, Kindly select your age category to continue..!!")
+          confirm("Username does not exist, kindly select your age category to continue..!!")
           return;
         }
       }
+    } else {
+      confirm("Username does not exist, kindly select your age category to continue..!!")
+      return;
     }
   }
 }
