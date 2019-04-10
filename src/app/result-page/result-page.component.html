@@ -12,7 +12,6 @@
       />
     </div>
     <a (click)="buttonShowScoreChartTapped()" href="#">{{scoreRange}}</a>
-
     <div *ngIf="isShowChartTrue == true" id ="ScoreChart">
       A+ = 80% or Above
       A  = 50% - 80%
@@ -43,7 +42,7 @@
         <h2>
           You scored
           <span class="badge badge-pill badge-info">{{ score }} </span> out of
-          {{arrChildQuiz.length}}
+          10
         </h2>
       <div class="row btn-group">
           <button class="btn-result-page col-sm-4" (click)="buttonNewQuizTapped()">New Quiz</button>
