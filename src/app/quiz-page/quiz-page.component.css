@@ -30,10 +30,11 @@
   border: 2px solid #3399ff;
   color: #3399ff;
   width: 90%;
-  max-height: 100%;
+  height: 90%;
   margin: 0 auto;
   float: left;
   overflow-wrap: break-word;
+  margin: 2px;
 }
 .btn-answer:focus {
   background-color: lightskyblue;
