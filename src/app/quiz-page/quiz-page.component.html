@@ -7,73 +7,74 @@
 </div>
 
 <ng-template #quizView>
-    <mat-card class="quiz-card ">
-      <mat-grid-list cols="5">
-        <mat-grid-list cols="12">
-          <mat-grid-tile [colspan]="12" [rowspan]="1">
-            <h3>
-              <span class="badge badge-pill badge-info"
-                >Category: {{ category }}
-              </span>
-            </h3>
-            <h3>
-              <span class="badge badge-pill badge-info"
-                >Score: {{ userScore }}</span
-              >
-            </h3>
-            <!---<mat-card class="">Category: {{ category }}</mat-card>
+  <mat-grid-list cols="12">
+    <mat-grid-tile [colspan]="12" [rowspan]="1">
+      <h5>
+        <span class="badge badge-pill badge-info"
+          >Category: {{ category }}
+        </span>
+      </h5>
+      <h5>
+        <span class="badge badge-pill badge-info">Score: {{ userScore }}</span>
+      </h5>
+      <!---<mat-card class="">Category: {{ category }}</mat-card>
             <div *ngIf="ageRange == 3">
               <mat-card class="">Score: {{ userScore }}</mat-card>
             </div>-->
-          </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-list cols="12">
-          <mat-grid-tile
-            [colspan]="12"
-            [rowspan]="3"
-            style.background="lightgreen"
-          >
-            <h4>{{ currentQuestion }}</h4>
-          </mat-grid-tile>
-        </mat-grid-list>
-        <div *ngIf="isOptionEnabled == false" class="container">
-          <mat-form-field>
-            <textarea
-              matInput
-              placeholder="Type Answer"
-              [(ngModel)]="inputText"
-            ></textarea>
-          </mat-form-field>
-          <button
-            mat-button
-            class="btn btn-dark btn-hint"
-            (click)="buttonHintTapped()"
-          >
-            Hint
-          </button>
-        </div>
-        <div *ngIf="isOptionEnabled == true" class="container">
-          <mat-grid-list cols="12" rowHeight="12:3">
-            <mat-grid-tile
-              *ngFor="let ans of arrCurrentAnswer"
-              [colspan]="6"
-              [rowspan]="3"
-            >
-              <button mat-button (click)="buttonAnswerTapped(ans)">
-                {{ ans }}
-              </button>
-            </mat-grid-tile>
-          </mat-grid-list>
-        </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-card class="quiz-card ">
+    <!--<div id="question-area">-->
+    <mat-grid-list cols="5">
+      <mat-grid-list cols="12">
+        <mat-grid-tile [colspan]="12" [rowspan]="1">
+          <p>{{ currentQuestion }}</p>
+        </mat-grid-tile>
       </mat-grid-list>
-      <mat-card-actions>
-        <button mat-button class="btn-submit" (click)="buttonNextTapped()">
-          Next
+      <div *ngIf="isOptionEnabled == false" class="container">
+        <mat-form-field>
+          <textarea
+            matInput
+            placeholder="Type Answer"
+            [(ngModel)]="inputText"
+          ></textarea>
+        </mat-form-field>
+        <button
+          mat-button
+          class="btn btn-dark btn-hint"
+          (click)="buttonHintTapped()"
+        >
+          Hint
         </button>
-        <button mat-button class="btn-submit" (click)="buttonQuitTapped()">
-          Quit
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </ng-template>
-  
+      </div>
+      <div *ngIf="isOptionEnabled == true" class="container">
+        <mat-grid-list cols="12" rowHeight="12:3">
+          <mat-grid-tile
+            *ngFor="let ans of arrCurrentAnswer"
+            class="grid-container"
+            [colspan]="6"
+            [rowspan]="3"
+          >
+            <button
+              mat-button
+              style="font-size:2vw;"
+              class="btn-answer"
+              (click)="buttonAnswerTapped(ans)"
+            >
+              {{ ans }}
+            </button>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </mat-grid-list>
+  </mat-card>
+  <div id="button-area">
+    <button mat-button class="btn-submit" (click)="buttonNextTapped()">
+      Next
+    </button>
+    <button mat-button class="btn-submit" (click)="buttonQuitTapped()">
+      Quit
+    </button>
+  </div>
+  <!--</div>-->
+</ng-template>
