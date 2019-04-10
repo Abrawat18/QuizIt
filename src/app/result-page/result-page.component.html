@@ -1,40 +1,36 @@
 <h2>Your Results</h2>
-<div *ngIf="ageRange == 1; else adultTeen" class="list-group">
-      <img
+<div *ngIf="ageRange == 1; else adultTeen" class="container list-group">
+  <div class="row">
+      <img class="col-md-4"
         src="../../assets/images/minions2.png"
         style="height: 100%; width: 80%; object-fit: contain"
       />
-      <h1><font face="Comic Sans MS" color="red">{{grade}}</font></h1>
-      <img
+      <h1 class="col-md-4"><font face="Comic Sans MS" color="red">{{grade}}</font></h1>
+      <img class="col-md-4"
         src="../../assets/images/minion.png"
         style="height: 100%; width: 100%; object-fit: contain"
       />
-    <button class="btn" (click)="buttonNewQuizTapped()">
+    </div>
+    <div class="row btn-group">
+    <button class="btn-result-page col-sm-4" (click)="buttonNewQuizTapped()">
       New Quiz
     </button>
-    <button class="btn" (click)="buttonChangeCategoryTapped()">
+    <button class="btn-result-page col-sm-4" (click)="buttonChangeCategoryTapped()">
       Change Category
     </button>
+  </div>
 </div>
 <ng-template #adultTeen>
   <div>
-        <h4>
+        <h2>
           You scored
           <span class="badge badge-pill badge-info">{{ score }} </span> out of
           10!
-        </h4>
-      <div>
-        <button class="btn" (click)="buttonNewQuizTapped()">New Quiz</button>
-      </div>
-      <div>
-        <button class="btn" (click)="buttonChangeCategoryTapped()">
-          Change Category
-        </button>
-      </div>
-      <div>
-        <button class="btn" (click)="buttonReviewAnswersTapped()">
-          Review Answers
-        </button>
+        </h2>
+      <div class="row btn-group">
+          <button class="btn-result-page col-sm-4" (click)="buttonNewQuizTapped()">New Quiz</button>
+          <button class="btn-result-page col-sm-4" (click)="buttonChangeCategoryTapped()">Change Category</button>
+          <button class="btn-result-page col-sm-4" (click)="buttonReviewAnswersTapped()">Review Answers</button>
       </div>
   </div>
   <div *ngIf="areAnswersToBeShown == true" class="container">
