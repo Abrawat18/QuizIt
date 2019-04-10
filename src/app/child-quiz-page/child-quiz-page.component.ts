@@ -24,6 +24,9 @@ export class ChildQuizPageComponent implements OnInit {
       this.handleQuizContent();
     }, 50);
   }
+  changeCategory() {
+    this.quizScore.emit(-1)
+  }
 
   handleQuizContent(){
       console.log(this.arrQuizContent.results.length)
