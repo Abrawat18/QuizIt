@@ -1,0 +1,86 @@
+{
+  "results": [
+    {
+      "category": "Science: Computers",
+      "correct_answer": "The Onion Router",
+      "difficulty": "medium",
+      "incorrect_answers": ["The Ominous Router", "The Only Router", "The Orange Router"],
+      "question": "What did the name of the Tor Anonymity Network orignially stand for?",
+      "type": "multiple"
+    },
+    {
+      "category": "Science: Computers",
+      "correct_answer": "December 20, 1990",
+      "difficulty": "medium",
+      "incorrect_answers": ["December 17, 1996", "November 12, 1990", "November 24, 1995"],
+      "question": "On which day did the World Wide Web go online?",
+      "type": "multiple"
+    }
+  ,
+    {
+      "category": "Science: Computers",
+      "correct_answer": "Clipper Chip",
+      "difficulty": "medium",
+      "incorrect_answers": ["Enigma Machine", "Skipjack", "Nautilus"],
+      "question": "Which of these is the name for the failed key escrow device introduced by the National Security Agency in 1993?",
+      "type": "multiple"
+    },
+    {
+      "category": "Science: Computers",
+      "correct_answer": "Luna",
+      "difficulty": "medium",
+      "incorrect_answers": ["Neptune", "Whistler", "Bliss"],
+      "question": "What is the name of the default theme that is installed with Windows XP?",
+      "type": "multiple"
+    },
+    {
+      "category": "Science: Computers",
+      "correct_answer": "Command Line Interface",
+      "difficulty": "medium",
+      "incorrect_answers": ["Common Language Input", "Control Line Interface", "Common Language Interface"],
+      "question": "In computing terms, typically what does CLI stand for?",
+      "type": "multiple"
+    },
+    {
+      "category": "Science: Computers",
+      "correct_answer": "The Onion Router",
+      "difficulty": "medium",
+      "incorrect_answers": ["The Ominous Router", "The Only Router", "The Orange Router"],
+      "question": "What did the name of the Tor Anonymity Network orignially stand for?",
+      "type": "multiple"
+    },
+    {
+      "category": "Science: Computers",
+      "correct_answer": "December 20, 1990",
+      "difficulty": "medium",
+      "incorrect_answers": ["December 17, 1996", "November 12, 1990", "November 24, 1995"],
+      "question": "On which day did the World Wide Web go online?",
+      "type": "multiple"
+    }
+  ,
+    {
+      "category": "Science: Computers",
+      "correct_answer": "Clipper Chip",
+      "difficulty": "medium",
+      "incorrect_answers": ["Enigma Machine", "Skipjack", "Nautilus"],
+      "question": "Which of these is the name for the failed key escrow device introduced by the National Security Agency in 1993?",
+      "type": "multiple"
+    },
+    {
+      "category": "Science: Computers",
+      "correct_answer": "Luna",
+      "difficulty": "medium",
+      "incorrect_answers": ["Neptune", "Whistler", "Bliss"],
+      "question": "What is the name of the default theme that is installed with Windows XP?",
+      "type": "multiple"
+    },
+    {
+      "category": "Science: Computers",
+      "correct_answer": "Command Line Interface",
+      "difficulty": "medium",
+      "incorrect_answers": ["Common Language Input", "Control Line Interface", "Common Language Interface"],
+      "question": "In computing terms, typically what does CLI stand for?",
+      "type": "multiple"
+    }
+  ]
+}
