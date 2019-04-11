@@ -1,23 +1,22 @@
-import { Component, OnInit,EventEmitter,Input,Output} from '@angular/core';
-import { DataService } from '../data.service';
+import { Component, OnInit, EventEmitter, Input, Output } from "@angular/core";
+import { DataService } from "../data.service";
 
 @Component({
-  selector: 'app-child-quiz-page',
-  templateUrl: './child-quiz-page.component.html',
-  styleUrls: ['./child-quiz-page.component.css']
+  selector: "app-child-quiz-page",
+  templateUrl: "./child-quiz-page.component.html",
+  styleUrls: ["./child-quiz-page.component.css"]
 })
-
 export class ChildQuizPageComponent implements OnInit {
   @Input() arrQuizContent;
   @Output() quizScore = new EventEmitter<number>();
   arrQuestions;
-  arrUserAnswer=[];
+  arrUserAnswer = [];
   arrIncorrectAnswer = [];
   userScore = 0;
   isQuizContentEmpty = false;
   displayHomePage = false;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     setTimeout(() => {
@@ -25,17 +24,19 @@ export class ChildQuizPageComponent implements OnInit {
     }, 50);
   }
   changeCategory() {
-    this.quizScore.emit(-1)
+    this.quizScore.emit(-1);
   }
 
-  handleQuizContent(){
-      console.log(this.arrQuizContent.results.length)
-      if(this.arrQuizContent.results.length==0){
-        this.isQuizContentEmpty=true
-      }else{
+  handleQuizContent() {
+    console.log(this.arrQuizContent.results.length);
+    if (this.arrQuizContent.results.length == 0) {
+      this.isQuizContentEmpty = true;
+    } else {
       this.arrQuestions = this.arrQuizContent.results;
-      this.arrQuestions.forEach( (quizObject, index) => {
+      this.arrQuestions.forEach((quizObject, index) => {
         console.log(quizObject);
+        quizObject.question = quizObject.question.replace(/&quot;/g, '"');
+        quizObject.question = quizObject.question.replace(/&#039;/g, "'");
         quizObject.incorrect_answers.push(quizObject.correct_answer);
         quizObject.incorrect_answers = quizObject.incorrect_answers.sort();
         this.arrIncorrectAnswer.push(quizObject.incorrect_answers);
@@ -44,27 +45,29 @@ export class ChildQuizPageComponent implements OnInit {
     }
     console.log(this.arrQuestions);
   }
-  
-  handleScore(ans, question, prevAns){
-    var currentAnsAreEqual = ans.toUpperCase() === question.correct_answer.toUpperCase();
-    if(prevAns === ""){
-      if(currentAnsAreEqual){
+
+  handleScore(ans, question, prevAns) {
+    var currentAnsAreEqual =
+      ans.toUpperCase() === question.correct_answer.toUpperCase();
+    if (prevAns === "") {
+      if (currentAnsAreEqual) {
         this.userScore++;
       }
-    }else{
-      var isPrevScoreGiven = prevAns.toUpperCase() === question.correct_answer.toUpperCase();
-      if(isPrevScoreGiven&&currentAnsAreEqual){
+    } else {
+      var isPrevScoreGiven =
+        prevAns.toUpperCase() === question.correct_answer.toUpperCase();
+      if (isPrevScoreGiven && currentAnsAreEqual) {
         //do nothing score given last time,case won't come anyway
-      } else if(!isPrevScoreGiven && currentAnsAreEqual){
+      } else if (!isPrevScoreGiven && currentAnsAreEqual) {
         this.userScore++;
-      }else if(isPrevScoreGiven && !currentAnsAreEqual){
+      } else if (isPrevScoreGiven && !currentAnsAreEqual) {
         this.userScore--;
       }
     }
   }
 
-  checkIfUserLevelIsToBeUpgraded(){
-    if(((this.userScore)/this.arrQuestions.length)>=0.8){
+  checkIfUserLevelIsToBeUpgraded() {
+    if (this.userScore / this.arrQuestions.length >= 0.8) {
       //upgrade level
     }
   }
@@ -93,35 +96,38 @@ export class ChildQuizPageComponent implements OnInit {
     }
   }
 
-  buttonSubmitTapped(){
+  buttonSubmitTapped() {
     let areAllAnswerGiven = true;
-    for(let index in this.arrUserAnswer){
+    for (let index in this.arrUserAnswer) {
       let ans = this.arrUserAnswer[index];
-        console.log(ans)
-        if (ans === ""){
-          areAllAnswerGiven = false;
-          break;
-        }
+      console.log(ans);
+      if (ans === "") {
+        areAllAnswerGiven = false;
+        break;
+      }
     }
-    if(!areAllAnswerGiven){
-      if (confirm("Are you sure you want to proceed without answering all questions")) {
-        this.quizScore.emit(this.userScore)
+    if (!areAllAnswerGiven) {
+      if (
+        confirm(
+          "Are you sure you want to proceed without answering all questions"
+        )
+      ) {
+        this.quizScore.emit(this.userScore);
       } else {
         return;
       }
-    }else{
-      this.quizScore.emit(this.userScore)
+    } else {
+      this.quizScore.emit(this.userScore);
     }
     this.checkIfUserLevelIsToBeUpgraded();
     console.log(this.userScore);
   }
 
-  buttonQuitTapped(){
+  buttonQuitTapped() {
     if (confirm("Are you sure you want quit the quiz?")) {
-      this.quizScore.emit(-1)
+      this.quizScore.emit(-1);
     } else {
       return;
     }
   }
-
 }

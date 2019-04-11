@@ -70,7 +70,7 @@ export class QuizPageComponent implements OnInit {
       let quizObject = this.arrQuestions[this.currentQuestionIndex];
       this.currentQuestion = unescape(quizObject.question);
       this.currentQuestion = this.currentQuestion.replace(/&quot;/g, '"');
-      this.currentQuestion = this.currentQuestion.replace(/&#039;/g, '"');
+      this.currentQuestion = this.currentQuestion.replace(/&#039;/g, "'");
 
       if (quizObject.incorrect_answers.length < 4) {
         quizObject.incorrect_answers.push(quizObject.correct_answer);
