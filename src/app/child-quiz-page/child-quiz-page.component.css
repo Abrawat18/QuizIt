@@ -1,8 +1,6 @@
 .grid-container {
-  display: grid;
+  display: inline;
   grid-template-columns: auto auto auto;
-  padding: 10px;
-  display: flex;
 }
 
 .btn-submit-user-input {
@@ -19,9 +17,8 @@
   border: 2px solid #3399ff;
   color: #3399ff;
   width: 50%;
-  height: 50%;
-  margin: 0 auto;
-  float: left;
+  margin: 5px;
+  padding: 5px;
 }
 
 .btn-submit {
