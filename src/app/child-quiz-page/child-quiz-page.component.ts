@@ -73,14 +73,14 @@ export class ChildQuizPageComponent implements OnInit {
     //console.log(prevAns);
 
     var currentButtonId = "button_" + ans;
-    document.getElementById(currentButtonId).style.color = "white";
+    //document.getElementById(currentButtonId).style.color = "red";
     document.getElementById(currentButtonId).style.backgroundColor =
       "lightskyblue";
 
     if (prevAns) {
       var previousButtonId = "button_" + prevAns;
       console.log(previousButtonId);
-      document.getElementById(previousButtonId).style.color = "black";
+      //document.getElementById(previousButtonId).style.color = "black";
 
       document.getElementById(previousButtonId).style.backgroundColor = null;
     }
